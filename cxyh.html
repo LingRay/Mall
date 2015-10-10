@@ -1,0 +1,607 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>92车生活</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="92车生活"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+  <input value="1" name="cartype" id="cartype" type="hidden"> 
+  <input value="5" name="bsites" id="bsites" type="hidden">   
+  <input value="5" name="sites" id="sites" type="hidden">
+  <input value="0" name="selT" id="selT" type="hidden">
+  <input id="realmoney" type="hidden" />
+  <input id="chesunxianhide" type="hidden" />
+  <input id="sanzhexianhide" type="hidden" />
+  <input id="jsyxianhide" type="hidden" />
+  <input id="ckxianhide" type="hidden" />
+  <input id="daoqiangxianhide" type="hidden" />
+  <input id="bolixianhide" type="hidden" />
+  <input id="csbjhide" type="hidden" />
+  <input id="d3bjhide" type="hidden" />
+  <input id="rybjhide" type="hidden" />
+  <input id="jsybjhide" type="hidden" />
+  <input id="ckbjhide" type="hidden" />    
+  <input id="dqbjhide" type="hidden" />
+  <input type="hidden" name="tianpinghide" id="tianpinghide" />
+  <input type="hidden" name="pinganhide" id="pinganhide" />
+  <input type="hidden" name="taipingyanghide" id="taipingyanghide" />
+  <input type="hidden" name="picchide" id="picchide" />
+
+<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">车险优惠</a>
+  </h1>
+   <div class="am-header-right am-header-nav">
+    <a href="javascript: void(0)"  id="nav_click" class="">
+      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+    </a>
+  </div>
+</header>
+
+
+<div style="height:20px"></div>
+
+<form action="#" onsubmit="return openmodel()"  class="am-form" id="doc-vld-msg">
+  <div class="am-g">
+
+    <div class="am-u-sm-8">    
+      <div class="am-input-group am-form-group am-input-group-default">
+      	<span class="am-input-group-label">购车日期</span>
+          <select id="buycaryear" name="buycaryear" onchange ="setmonth()">
+            <script type="text/javascript">
+              var dd = new Date();
+              var y=dd.getFullYear();
+              while(y>2000){
+                document.write("<option value='"+y+"'>"+y+"年</option>");
+                   y--;
+              }
+            </script>
+          </select>
+      </div>
+    </div>
+
+    <div class="am-u-sm-4">
+          <select id="buycarmonth" name="buycarmonth" onchange ="setmonth()">
+          <script type="text/javascript">
+            var dd = new Date();
+            var m=dd.getMonth()+1;
+            if(m<10) m="0"+m;
+            for(var i=1;i<=12;i++){
+              if(i<10) i="0"+i;
+              if(i==m){
+                document.write("<option value='"+i+"' selected>"+i+"月</option>");
+              }else{
+                document.write("<option value='"+i+"'>"+i+"月</option>");
+              }
+            }      
+          </script>
+      </select>
+    </div>
+
+     <div class="am-u-sm-9">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">购车价格</span>
+        <input class="am-form-field" type="tel"  minlength="1" maxlength="3" data-validation-message="*请输入正确的价格"  placeholder="请输入价格" id="inbuycarprice" required/>
+      </div>
+    </div>
+    <div class="am-u-sm-3">
+      <div class="am-checkbox">万元</div>
+    </div>
+
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车主姓名</span>
+        <input class="am-form-field" type="text"  minlength="2" maxlength="20" data-validation-message="*请输入正确的姓名，以便与您联系"  placeholder="请输入您的姓名" id="buycarname"  required/>
+      </div>
+    </div>
+
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">手机号码</span>
+        <input class="am-form-field" type="tel"  minlength="11" maxlength="11" data-validation-message="*请输入正确的号码，以便与您联系" id="buycarmobile"  placeholder="请输入手机号码" onkeyup="this.value = this.value.toUpperCase();"  required/>
+      </div>
+    </div>
+
+   <div class="am-u-sm-8">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车牌号码</span>
+              <input type="text" id="usercarno" name="usercarno" placeholder="请输入您的车牌" value="粤S" datatype="s7-7" placeholder="您的车牌号码不能为空！" data-validation-message="*请输入正确的车牌号码！" onkeyup="this.value = this.value.toUpperCase();" minlength="7" maxlength="7">
+      </div>
+    </div>
+
+    <div class="am-u-sm-4">
+      <div class="am-checkbox">
+        <label>
+          <input type="checkbox" name="wupai" id="newVehicleFlag" onclick="newcar()" /> 新车无牌
+        </label>
+      </div>
+    </div>
+
+
+    <div class="am-u-sm-12">    
+      <button class="am-btn am-btn-success am-radius am-btn-block"   type="submit">立即报价</button>
+    </div>    
+  </div>
+</form>
+
+<div class="am-popup" id="my-popup">
+  <div class="am-popup-inner">
+    <div class="am-popup-hd">
+      <h4 class="am-popup-title">商业险种选择</h4>
+      <span data-am-modal-close
+            class="am-close am-close-alt am-icon-times"></span>
+    </div>
+    <div class="am-popup-bd am-scrollable-vertical" style="padding:10px 0;height:60%">
+        <table  class="am-table  am-table-striped am-table-compact am-wzreslut-table">
+          <thead>
+              <tr class="am-active am-text-danger am-text-sm">
+                  <th>险种</th>
+                  <th>投保金额</th>
+                  <th>报价</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td><input  type="checkbox" id="chesunxian" onclick="changebox(this)" checked><label id="chesunxianlabel" for="chesunxian" style="font-size:1em">车辆损失险</label></td>
+                  <td><span id="buycarprice"></span>万元</td>
+                  <td><span id="chesunxianshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="sanzhexian" onclick="changebox(this)" checked><label id="chesunxianlabel" for="sanzhexian" style="font-size:1em">第三者责任险</label></td>
+                  <td><select name="tbdsz" id="tbdsz" onchange="changeselect(this)">
+                        <option value="5">5万元</option>
+                        <option value="10">10万元</option>
+                        <option value="15">15万元</option>
+                        <option value="20" selected>20万元</option>
+                        <option value="30">30万元</option>
+                        <option value="50">50万元</option>
+                        <option value="100">100万元</option>                  
+                      </select>
+                  </td>
+                  <td><span id="sanzhexianshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="jsyxian" onclick="changebox(this)" checked><label id="jsyxianlabel" for="jsyxian" style="font-size:1em">驾驶员座位险</label></td>
+                  <td>每座限额
+                      <select name="tbjsy" id="tbjsy" onchange="changeselect(this)">
+                        <option value="1" selected>1万元</option>
+                        <option value="2">2万元</option>
+                        <option value="5">5万元</option>
+                        <option value="10">10万元</option>
+                      </select>
+                  </td>
+                  <td><span id="jsyxianshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="ckxian" onclick="changebox(this)" checked><label id="ckxianlabel" for="ckxian" style="font-size:1em">乘客座位险</label></td>
+                  <td>每座限额
+                      <select name="tbck" id="tbck" onchange="changeselect(this)">
+                        <option value="1" selected>1万元</option>
+                        <option value="2">2万元</option>
+                        <option value="5">5万元</option>
+                        <option value="10">10万元</option>
+                      </select>
+                  </td>
+                  <td><span id="ckxianshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="daoqiangxian" onclick="changebox(this)" checked><label id="daoqiangxianlabel" for="daoqiangxian" style="font-size:1em">全车盗抢险</label></td>
+                  <td>折旧后车价 <span id="daoqiangxianshow2"></span> 万元</td>
+                  <td><span id="daoqiangxianshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="bolixian" onclick="changebox(this)" checked><label id="bolixianlabel" for="bolixian" style="font-size:1em">玻璃破碎险</label></td>
+                  <td>
+                      <select name="tbboli" id="tbboli" onchange="changeselect(this)">
+                        <option value="1">国产</option>
+                        <option value="0">进口</option>
+                      </select>
+                  </td>
+                  <td><span id="bolixianshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="csbj" onclick="changebox(this)" checked><label id="csbjlabel" for="csbj" style="font-size:1em">车损险不计免赔</label></td>
+                  <td></td>
+                  <td><span id="csbjshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="d3bj" onclick="changebox(this)" checked><label id="d3bjlabel" for="d3bj" style="font-size:1em">第三者不计免赔</label></td>
+                  <td></td>
+                  <td><span id="d3bjshow"></span>元</td>
+              </tr>
+              <tr>
+                  <td><input type="checkbox" id="rybj" onclick="changebox(this)" checked><label id="rybjlabel" for="rybj" style="font-size:1em">乘客不计免赔</label></td>
+                  <td></td>
+                  <td><span id="rybjshow"></span>元</td>
+              </tr>   
+              <tr>
+                  <td><input type="checkbox" id="dqbj" onclick="changebox(this)" checked><label id="dqbjlabel" for="dqbj" style="font-size:1em">盗抢险不计免赔</label></td>
+                  <td></td>
+                  <td><span id="dqbjshow"></span>元</td>
+              </tr>   
+              <tr class="am-text-success am-text-sm">
+                <td colspan="2"><b>商业险总计：</b></td>
+                <td><b><span id="totalshow2"></span>元</b></td>
+              </tr>
+                                                  
+          </tbody>
+        </table>
+  </div>
+      <div class="am-margin-left-xs am-margin-right-xs"><span class="am-text-xs am-text-warning">*以上报价仅供参考，实际报价可能更低，请选择下一步</span><button class="am-btn am-btn-success am-radius am-btn-block"   type="button">下一步，选择保险公司</button></div>
+
+	</div>
+</div>
+
+<!--分割空白-->
+<div style="height: 80px;"></div>
+<script type="text/x-handlebars-template" id="amz-tpl">
+  {{>navbar navbar}}
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.js"></script>
+<script src="assets/js/app.js"></script>
+<script type="text/javascript">
+  $(function() {
+
+    var nowTemp = new Date();
+    var topdate = new Date();
+    topdate.setDate(90);
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var lastdate = new Date(topdate.getFullYear(), topdate.getMonth(), topdate.getDate(), 0, 0, 0, 0);       
+    var $myStart2 = $('#appDate');
+
+    var checkin = $myStart2.datepicker({
+      onRender: function(date) {
+        return (date.valueOf() <= now.valueOf() || date.valueOf()>=lastdate.valueOf()) ? 'am-disabled' : '';
+      }
+    }).on('changeDate.datepicker.amui', function(ev) {
+        checkin.close();
+    }).data('amui.datepicker');
+
+
+  $('#doc-vld-msg').validator({
+    onValid: function(validity) {
+      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+
+    },
+
+    onInValid: function(validity) {
+      var $field = $(validity.field);
+      var $group = $field.closest('.am-form-group');
+      var $alert = $group.find('.am-alert');
+      // 使用自定义的提示信息 或 插件内置的提示信息
+      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+      if (!$alert.length) {
+        $alert = $('<div  class="am-alert am-alert-danger"></div>').hide().
+          appendTo($group);
+      }
+
+      $alert.html(msg).show();
+    }
+      // 定义表单提交处理程序
+      //   - 如果没有定义且 `validateOnSubmit` 为 `true` 时，提交时会验证整个表单
+      //   - 如果定义了表单提交处理程序，`validateOnSubmit` 将会失效
+      //        function(e) {
+      //          // 通过 this.isFormValid() 获取表单验证状态
+      //          // 注意： 如果自定义验证程序而且自定义验证程序中包含异步验证的话 this.isFormValid() 返回的是 Promise，不是布尔值
+      //          // Do something...
+      //        }
+ 
+  });
+});
+
+function newcar(){
+  if(document.getElementById('newVehicleFlag').checked){
+    document.getElementById('usercarno').disabled=true;
+    document.getElementById('usercarno').value="";
+    document.getElementById('usercarno').setAttribute('datatype','');
+    document.getElementById('usercarno').setAttribute('placeholder','');
+    document.getElementById('buycaryear').options[0].selected=true;
+    var dd = new Date();
+    var m=dd.getMonth();
+    document.getElementById('buycarmonth').options[m].selected=true;
+  }else{
+    document.getElementById('usercarno').value="粤S";
+    document.getElementById('usercarno').disabled=false;
+    document.getElementById('usercarno').setAttribute('datatype','s7-7');
+  }
+}
+
+
+function  changebox(box){
+        if(box.checked){
+          switch(box.id)
+            {
+              case "chesunxian":
+                document.getElementById('csbj').checked=true;
+                document.getElementById('csbj').disabled=false;
+                document.getElementById('csbjshow').innerHTML=document.getElementById('csbjhide').value;            
+              break;
+
+              case "sanzhexian":
+                document.getElementById('d3bj').checked=true;
+                document.getElementById('d3bj').disabled=false;
+                document.getElementById('d3bjshow').innerHTML=document.getElementById('d3bjhide').value;
+                document.getElementById('tbdsz').disabled=false;             
+              break;
+
+              case "daoqiangxian":
+                document.getElementById('dqbj').checked=true;
+                document.getElementById('dqbj').disabled=false;
+                document.getElementById('dqbjshow').innerHTML=document.getElementById('dqbjhide').value;
+              break;
+
+              case "jsyxian":
+                if(document.getElementById('ckxian').checked){
+                  document.getElementById('rybj').checked=true;
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('rybjhide').value;
+                }else{
+                  document.getElementById('rybj').checked=true;
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('jsybjhide').value;
+                };
+                document.getElementById('tbjsy').disabled=false;
+              break;   
+
+              case "ckxian":
+                if(document.getElementById('jsyxian').checked){
+                  document.getElementById('rybj').checked=true;
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('rybjhide').value;
+                }else{
+                  document.getElementById('rybj').checked=true;
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('ckbjhide').value;
+                };
+                document.getElementById('tbck').disabled=false;
+              break;  
+
+              case "bolixian":
+                document.getElementById('tbboli').disabled=false;
+              break;
+
+              case "rybj":
+                if(document.getElementById('jsyxian').checked==true && document.getElementById('ckxian').checked==false)
+                {
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('jsybjhide').value;
+                  jisuan();
+                  return;
+                }else if(document.getElementById('jsyxian').checked==false && document.getElementById('ckxian').checked==false)
+                {
+                  document.getElementById('rybjshow').innerHTML=0;
+                  jisuan();
+                  return;
+                }else if(document.getElementById('jsyxian').checked==false && document.getElementById('ckxian').checked==true)
+                {
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('ckbjhide').value;
+                  jisuan();
+                  return;
+                }
+              break;             
+                                
+            }
+          document.getElementById(box.id+'show').innerHTML=document.getElementById(box.id+'hide').value;
+        }else{
+            switch(box.id)
+            {
+              case "chesunxian":
+                document.getElementById('csbj').checked=false;
+                document.getElementById('csbj').disabled=true;
+                document.getElementById('csbjshow').innerHTML=0;            
+              break;
+
+              case "sanzhexian":
+                document.getElementById('d3bj').checked=false;
+                document.getElementById('d3bj').disabled=true;
+                document.getElementById('d3bjshow').innerHTML=0; 
+                document.getElementById('tbdsz').disabled=true;          
+              break;
+
+              case "daoqiangxian":
+                document.getElementById('dqbj').checked=false;
+                document.getElementById('dqbj').disabled=true;
+                document.getElementById('dqbjshow').innerHTML=0;            
+              break;
+
+              case "jsyxian":
+                if(document.getElementById('ckxian').checked){
+                  document.getElementById('rybj').checked=true;
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('ckbjhide').value;
+                }else{
+                  document.getElementById('rybj').checked=false;
+                  document.getElementById('rybjshow').innerHTML=0;
+                };
+                document.getElementById('tbjsy').disabled=true;
+              break;   
+
+              case "ckxian":
+                if(document.getElementById('jsyxian').checked){
+                  document.getElementById('rybj').checked=true;
+                  document.getElementById('rybjshow').innerHTML=document.getElementById('jsybjhide').value;
+                }else{
+                  document.getElementById('rybj').checked=false;
+                  document.getElementById('rybjshow').innerHTML=0;
+                };
+                document.getElementById('tbck').disabled=true;
+              break;         
+
+              case "bolixian":
+                document.getElementById('tbboli').disabled=true;
+              break;              
+                                
+            }
+        document.getElementById(box.id+'show').innerHTML=0;
+        }
+        jisuan();
+      }
+
+      function jisuan(){
+        var newtotalprice=parseInt(document.getElementById("chesunxianshow").innerHTML)
+        +parseInt(document.getElementById("sanzhexianshow").innerHTML)
+        +parseInt(document.getElementById("jsyxianshow").innerHTML)
+        +parseInt(document.getElementById("ckxianshow").innerHTML)
+        +parseInt(document.getElementById("daoqiangxianshow").innerHTML)
+        +parseInt(document.getElementById("bolixianshow").innerHTML)
+        +parseInt(document.getElementById("csbjshow").innerHTML)
+        +parseInt(document.getElementById("d3bjshow").innerHTML)
+        +parseInt(document.getElementById("rybjshow").innerHTML)
+        +parseInt(document.getElementById("dqbjshow").innerHTML);
+        document.getElementById("totalshow2").innerHTML=newtotalprice;
+        document.getElementById("tianping").innerHTML=parseInt(newtotalprice*0.65)+"元";
+        document.getElementById("pingan").innerHTML=parseInt(newtotalprice*0.75)+"元";
+        document.getElementById("taipingyang").innerHTML=parseInt(newtotalprice*0.72)+"元";
+        document.getElementById("picc").innerHTML=parseInt(newtotalprice*0.7)+"元";
+      }
+
+      function changeselect(opt){
+        switch(opt.id)
+        {
+          case "tbboli":
+            if(document.getElementById('bolixian').checked)
+              {
+                changeboli($("#inbuycarprice").val(),opt.value);
+                jisuan();
+              }
+          break;
+          case "tbdsz":
+            if(document.getElementById('sanzhexian').checked)
+              {
+                changed3(opt);
+                jisuan();
+              }
+          break;
+          case "tbjsy":
+            if(document.getElementById('jsyxian').checked)
+              {
+                changejsy(opt.value);
+                jisuan();
+              }
+          break;
+          case "tbck":
+            if(document.getElementById('ckxian').checked)
+              {
+                changeck(opt.value,bsites);
+                jisuan();
+              }
+          break;           
+        }
+      }
+ 
+    var cartype     = document.getElementById("cartype").value;
+    var sites       = document.getElementById("sites").value;
+    var bsites      = document.getElementById("bsites").value;      
+    var selT        = document.getElementById("selT").value;
+    var tbdsz       = document.getElementById('tbdsz');
+    var tbjsy       = document.getElementById('tbjsy').value;
+    var tbck        = document.getElementById('tbck').value; 
+    var tbboli      = document.getElementById("tbboli").value;
+
+  function bxload(){
+    var buymoney    = $("#inbuycarprice").val();
+    var dd = new Date();
+    var y=dd.getFullYear();
+    var m=dd.getMonth()+1;
+    var countmonth=(y-$("#buycaryear").val())*12+(m-$("#buycarmonth").val());
+
+    f_getRealMoney(cartype,sites,selT,buymoney,countmonth);
+    f_feecomp(buymoney,countmonth,selT);
+    f_countd3(tbdsz);
+    f_jsyzrx(tbjsy);
+    f_ckzrx(tbck,bsites);
+    f_countdqx();
+    f_countblpsx(buymoney,tbboli);
+    f_countBj_jd();
+    f_countBj_d3();
+    f_countBj_ry();
+    f_countBj_dq();
+    countPrice();
+  }   
+
+  function openmodel(){
+    if(!$("#inbuycarprice").val() || !$("#buycarname").val() || !$("#buycarmobile").val()){
+      return false;
+    }
+      $("#buycarprice").text($("#inbuycarprice").val());
+      bxload();
+      $('#my-popup').modal('open');
+      return false;      
+  }   
+
+  function setmonth(){
+     var dd = new Date();
+    var y=dd.getFullYear();
+    var m=dd.getMonth()+1;
+    if(m<10) m="0"+m;
+    if($("#buycaryear").val()==y){
+      if($("#buycarmonth").val()>m) $("#buycarmonth").val(m);
+    }    
+  }
+ 
+  // function movemonth(){
+  //   var dd = new Date();
+  //   var y=dd.getFullYear();
+  //   var m=dd.getMonth()+1;
+  //   if($("#buycaryear").val()==y){
+  //     $("#buycarmonth option").each(function(){
+  //       if($(this).val() > m){
+  //       $(this).remove();
+  //       }
+  //     });
+  //   }
+  // }
+
+  // function addmonth(){
+  //     $("#buycarmonth option").each(function(){
+  //       $(this).remove();
+  //     });
+
+  //     var dd = new Date();
+  //     var m=dd.getMonth()+1;
+  //     if(m<10) m="0"+m;
+  //     for(var i=1;i<=12;i++){
+  //       if(i<10) i="0"+i;
+  //         $("#buycarmonth").append("<option value='"+i+"'>"+i+"月</option>");
+  //     }  
+
+  // }
+</script>
+</body>
+</html>

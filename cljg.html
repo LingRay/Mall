@@ -1,0 +1,141 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>92车生活</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="92车生活"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+  <link rel="canonical" href="http://www.example.com/">
+  -->
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header data-am-widget="header" class="am-header am-header-default">
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">处理结果</a>
+  </h1>
+   <div class="am-header-right am-header-nav">
+    <a href="#" id="nav_click" class="">
+      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+    </a>
+  </div>
+</header>
+
+<div id="nav-load"></div>
+
+<div class="am-panel am-panel-default">
+  <div class="am-panel-hd" style="font-size:20px;text-align:center;color:#DD514C"><span class="am-icon-check-circle-o"> 亲，您的需求已提交成功！</span><br/><span style="font-size:14px;color:gray">客服将于30分钟内与您联系</span></div>
+  <div class="am-panel-bd">
+    <div class="am-g">
+      <div class="am-u-sm-12">订单状态：<span class="am-badge am-badge-danger am-radius am-text-sm">提交成功，待处理</span></div>
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>      
+      <div class="am-u-sm-12">订单项目：代领年检标</div>
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>       
+      <div class="am-u-sm-12">
+        <a href="index.html">
+          <button class="am-btn am-btn-success am-radius am-btn-block">
+            返回首页
+          </button>
+        </a>        
+      </div>           
+    </div>
+  </div>
+</div>
+
+<script type="text/x-handlebars-template" id="amz-tpl">
+  {{>menu menu}}
+  {{>list_news list1}}
+  {{>list_news list2}}
+  {{>footer footer}}
+  {{>navbar navbar}}
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.js"></script>
+<script src="assets/js/app.js"></script>
+<script type="text/javascript">
+
+  $(function() {
+    var nowTemp = new Date();
+    var topdate = new Date();
+    topdate.setDate(90);
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var lastdate = new Date(topdate.getFullYear(), topdate.getMonth(), topdate.getDate(), 0, 0, 0, 0);       
+    var $myStart2 = $('#appDate');
+
+    var checkin = $myStart2.datepicker({
+      onRender: function(date) {
+        return (date.valueOf() <= now.valueOf() || date.valueOf()>=lastdate.valueOf()) ? 'am-disabled' : '';
+      }
+    }).on('changeDate.datepicker.amui', function(ev) {
+        checkin.close();
+    }).data('amui.datepicker');
+
+
+  $('#doc-vld-msg').validator({
+    onValid: function(validity) {
+      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+    },
+
+    onInValid: function(validity) {
+      var $field = $(validity.field);
+      var $group = $field.closest('.am-form-group');
+      var $alert = $group.find('.am-alert');
+      // 使用自定义的提示信息 或 插件内置的提示信息
+      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+      if (!$alert.length) {
+        $alert = $('<div  class="am-alert am-alert-danger"></div>').hide().
+          appendTo($group);
+      }
+
+      $alert.html(msg).show();
+    }
+  });
+});
+</script>
+<!--<![endif]-->
+
+</body>
+</html>

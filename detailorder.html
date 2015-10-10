@@ -1,0 +1,167 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>92车生活</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="92车生活"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <meta content="telephone=no" name="format-detection" />
+  
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <style type="text/css">
+.am-tab-panel img{width: 100%}
+blockquote{border-left: 0px;font-size: 13px;color: #F37B1D;padding-top: 0px;padding-bottom: 0px;}
+  </style>
+
+</head>
+<body>
+
+<header data-am-widget="header" class="am-header am-header-default">
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">订单详情</a>
+  </h1>
+  <div class="am-header-right am-header-nav">
+    <a href="javascript: void(0);" id="nav_click" class="">
+      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+    </a>
+  </div>
+</header>
+
+
+<div style="height: 50px"></div>
+<div data-am-widget="list_news" class="am-list-news am-list-news-default" style="margin: 0;">
+  <div class="am-list-news-bd">
+    <ul class="am-list">
+      <!--缩略图在标题左边-->
+         <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
+          <a href="serdetail.html">
+          <div class="am-u-sm-3 am-list-thumb">
+            <img src="assets/i/sj/10.jpg" />
+          </div>
+          <div class=" am-u-sm-9 am-list-main">
+          	<h3 class="am-list-item-hd">
+              人工普通洗车&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="am-icon-rmb am-detail-price-new">18&nbsp;&nbsp;</span>
+              <span class="am-icon-rmb am-detail-price-old">30</span>
+            </h3>
+            <div  style="font-size:14px;color:#333">德国力魔汽车养护专家</div>
+            <div class="am-list-item-text am-icon-map-marker">天河区东方宝泰负一层1053商铺</div>             
+            <div class="am-list-phone">
+            	<span class="am-primary am-icon-md am-icon-angle-right"></span>
+            </div>
+          </div>
+          </a>
+        </li>           
+      </ul>
+    </div>
+</div>
+
+<div class="am-panel am-panel-default">
+  <div class="am-panel-bd">
+    <div class="am-g am-g-collapse">
+     <div style="color:gray;font-size:12px;text-align:center;line-height:30px">
+        <div class="am-u-sm-6">
+          ☑不消费随时退款
+        </div>
+        <div class="am-u-sm-6">
+          ☑过期自动退款
+        </div>
+      </div> 
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>                
+      <div class="am-u-sm-4">消费密码：</div>
+      <div class="am-u-sm-8">55 4658 3876 5403</div>
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>      
+      <div class="am-u-sm-4">二维密码：</div>
+      <div class="am-u-sm-8" id="qrcode"></div>
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>       
+      <div class="am-u-sm-4">消费情况：</div>
+      <div class="am-u-sm-8"><span style="color:#F37B1D;font-weight:bold" id="sumprice">未消费</span><br/>
+        <span class="am-list-item-text">到店向商家展示消费密码或二维码即可消费</span>
+      </div>            
+    </div>
+  </div>
+</div>
+
+<div class="am-panel am-panel-default">
+  <div class="am-panel-bd">
+    <div class="am-g am-g-collapse">
+      <div class="am-u-sm-4" >
+        订单编号：
+      </div>
+      <div class="am-u-sm-8" >
+      1234567890
+      </div>
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>      
+      <div class="am-u-sm-4">下单时间：</div>
+      <div class="am-u-sm-8 ">
+        2015-05-20 13:14:19
+      </div>
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>       
+      <div class="am-u-sm-4">下单数量：</div>
+      <div class="am-u-sm-8">1</div> 
+      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>        
+      <div class="am-u-sm-4">金额总计：</div>
+      <div class="am-u-sm-8">18元</div>                  
+    </div>
+  </div>
+</div>
+
+<div class="am-g">
+  <div class="am-u-sm-12">
+    <button class="am-btn am-btn-warning am-radius am-btn-block">
+    申请退款
+    </button>
+  </div>
+  <div class="am-u-sm-12">&nbsp;</div>  
+</div>
+
+<script type="text/x-handlebars-template" id="amz-tpl">
+  {{>menu menu}}
+  {{>footer footer}}
+  {{>navbar navbar}}
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.js"></script>
+<script src="assets/js/app.js"></script>
+<script type="text/javascript">
+  $("#qrcode").qrcode({ 
+      width: 150, //宽度 
+      height:150, //高度 
+      text: "55465838765403" //任意内容 
+  }); 
+</script>
+</body>
+</html>

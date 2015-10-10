@@ -1,0 +1,330 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>92车生活</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="92车生活"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+   <style type="text/css">
+    .am-offcanvas-bar{
+      width: 100%;
+      font-size: 12px
+    }
+  </style>
+</head>
+<body>
+
+<header data-am-widget="header" class="am-header am-header-default">
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">增加车辆</a>
+  </h1>
+  <div class="am-header-right am-header-nav">
+    <a href="javascript:;" id="nav_click" class="">
+      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+    </a>
+  </div>
+</header>
+
+ <div style="height: 70px;"></div>
+<form action="mycar.html" class="am-form" id="doc-vld-msg">
+<div class="am-g">
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-form-icon am-form-feedback am-input-group-default"><span class="am-input-group-label">车辆品牌</span>
+      <input class="am-radius am-form-field" style ="background:white" onclick="showbrand();" type="text" readonly="true"   value="请选择车型" id="userbrand" required/><span class="am-text-primary am-icon-chevron-right"></span>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12" id="showbranddiv1" style="display:none">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车辆型号</span>
+      <input class="am-radius am-form-field" style ="background:#FFFFFF;" type="text" readonly="true"    id="userbrand1" required/>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12" id="showbranddiv2" style="display:none">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">具体型号</span>
+      <input class="am-radius am-form-field" style ="background:white" type="text" readonly="true"    id="userbrand2" required/>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车牌号码</span>
+        <input class="am-form-field" type="text"  minlength="7" maxlength="7" data-validation-message="*请输入正确的车牌"  placeholder="请输入车牌号码" onkeyup="this.value = this.value.toUpperCase();" value="粤S" required/>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车架号　</span>
+        <input class="am-form-field" type="text"  minlength="6" maxlength="6" data-validation-message="*请输入正确的车架号"  placeholder="请输入车架号后六位" onkeyup="this.value = this.value.toUpperCase();"  required/>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">发动机号</span>
+        <input class="am-form-field" type="text"  minlength="6" maxlength="6" data-validation-message="*请输入正确的发动机号"  placeholder="请输入发动机号后六位" onkeyup="this.value = this.value.toUpperCase();"  required/>
+      </div>
+    </div>    
+
+
+  <div class="am-u-sm-12">    
+    <button class="am-btn am-btn-success am-radius am-btn-block" type="submit">增加</button>
+  </div>    
+</div>
+</form>
+
+<div class="showcarmenu">
+<nav id="meu1" data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+  <a href="javascript: void(0)" class="am-menu-toggle" id="showbrand"></a>
+  <div class="am-offcanvas">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+    	<ul class="am-menu-nav am-avg-sm-1">
+    		<a href="javascript:;" class="car-brand" onclick="closemenu();">
+    	    <li>汽车品牌</li>
+    	      
+    	  </a>
+    	</ul>
+     		
+      <ul class="am-menu-nav am-avg-sm-1" id="showbrandlist">
+      	
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav id="meu2" data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+  <a href="javascript: void(0);" class="am-menu-toggle" id="showbrand1"></a>
+  <div class="am-offcanvas">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+    	
+     <ul class="am-menu-nav am-avg-sm-1" id="showbrandlist1">
+    </ul>
+    </div>
+  </div>
+</nav>
+
+<nav id="meu3" data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas>
+  <a href="javascript: void(0)" class="am-menu-toggle" id="showbrand2"></a>
+  <div class="am-offcanvas">
+    <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+    	<ul class="am-menu-nav am-avg-sm-1">
+    		<a href="javascript:;" class="car-brand" onclick=" showbrand1()">
+    	    <li>汽车型号</li>
+    	  </a>
+    	</ul>
+     <ul class="am-menu-nav am-avg-sm-1" id="showbrandlist2">
+    </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<div class="toScroll am-vertical-align ">
+	<ul class="am-text-center am-vertical-align-middle ">
+	<li class="A">A</li>
+	<li class="B">B</li>
+	<li class="C">C</li>
+	<li class="D">D</li>
+	<li class="E">E</li>
+	<li class="F">F</li>
+	<li class="G">G</li>
+	<li class="H">H</li>
+	<li class="I">I</li>
+	<li class="J">J</li>
+	<li class="K">K</li>
+	<li class="L">L</li>
+	<li class="M">M</li>
+	<li class="N">N</li>
+	<li class="O">O</li>
+	<li class="P">P</li>
+	<li class="Q">Q</li>
+	<li class="R">R</li>
+	<li class="S">S</li>
+	<li class="T">T</li>
+	<li class="U">U</li>
+	<li class="V">V</li>
+	<li class="W">W</li>
+	<li class="X">X</li>
+	<li class="Y">Y</li>
+	<li class="Z">Z</li>
+</ul>
+</div>
+
+<div style="height: 50px;"></div>
+<script type="text/x-handlebars-template" id="amz-tpl">
+  {{>navbar navbar}}
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.js"></script>
+<script src="assets/js/app.js"></script>
+<script type="text/javascript">
+
+function closemenu(){
+  $(".am-offcanvas").click();
+  $(".toScroll").hide();
+}
+
+function showbrand() {
+	closemenu();
+	$('#showbrand').click();
+	$(".toScroll").show();
+	 
+}
+
+function showbrand1() {
+	closemenu();
+	$('#showbrand1').click();
+	
+}
+
+function showbrand2() {
+	closemenu();
+	$('#showbrand2').click();
+
+}
+
+
+function getbrandval(brand,serial,modal){
+  $('#userbrand').val(""+brand+"");
+  $('#userbrand1').val(""+serial+"");
+  $('#userbrand2').val(""+modal+"");  
+  $("#showbranddiv1").show();
+  $("#showbranddiv2").show(); 
+  closemenu();
+}
+
+//系列
+function getserial(id){
+    //closemenu();
+ $.getJSON("http://218.16.59.113:8082/WXService.asmx/GetCarInfo?action=serial&id="+id+"&jsoncallback=?",
+    function(result) {
+      var seriallist="";
+      for(var i in result) {
+        if((result[i]['id']).substring(0,1)=="+"){
+          seriallist=seriallist+'<li class="" id="serial_back" ><a href="javascript:;" onclick = "showbrand()">'+result[i]['text']+'</a>\</li>';
+        }else{
+          seriallist=seriallist+'<li class="am-parent"><a href="javascript:;" onclick="getmodal('+result[i]['id']+'); showbrand2()" class="">'+result[i]['text']+'</a>\</li>';
+        }
+      }
+      
+      $("#showbrandlist1").html(seriallist);
+
+    }); 
+}
+
+
+
+//型号
+function getmodal(id){
+       $.getJSON("http://218.16.59.113:8082/WXService.asmx/GetCarInfo?action=modal&id="+id+"&jsoncallback=?",
+    function(result) {
+      var modallist="";
+      for(var i in result) {
+        modallist=modallist+'<li class="am-parent"><a href="javascript:;" onclick="getbrandval(\''+result[i]['brand']+'\',\''+result[i]['serial']+'\',\''+result[i]['text']+'\');" class="">'+result[i]['text']+'</a>\</li>';
+      }
+      
+      $("#showbrandlist2").html(modallist);
+    }); 
+}
+
+//执行调用
+$(function() {
+//品牌
+   $.getJSON("http://218.16.59.113:8082/WXService.asmx/GetCarInfo?action=brand&id=&jsoncallback=?",
+    function(result) {
+     var brandlist="";
+      for(var i in result) {
+      	var letter = result[i]['text'];
+      	var letter = 'to_'+letter.substr(0,1);
+        brandlist=brandlist+'<li class="am-parent ' + letter +'" ><a href="javascript:;" onclick="getserial('+result[i]['id']+');showbrand1()" class="">'+result[i]['text']+'</a>\</li>';
+       
+      }
+     
+      $("#showbrandlist").html(brandlist);
+});
+ 
+//表单验证
+  $('#doc-vld-msg').validator({
+    onValid: function(validity) {
+      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+    },
+
+    onInValid: function(validity) {
+      var $field = $(validity.field);
+      var $group = $field.closest('.am-form-group');
+      var $alert = $group.find('.am-alert');
+      // 使用自定义的提示信息 或 插件内置的提示信息
+      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+      if (!$alert.length) {
+        $alert = $('<div class="am-alert am-alert-danger"></div>').hide().
+          appendTo($group);
+      }
+
+      $alert.html(msg).show();
+    }
+  });
+
+//字母
+$('div').scroll(function(){
+	var letter=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I' ,'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T','U', 'V', 'W', 'X', 'Y', 'Z'];
+	for (var i = 0; i < 26; i++) {
+		var str = '.to_' +letter[i];
+		var length = $(str).size();
+	  var length = length *50;
+		if (length == 0) {
+			continue;
+}else{
+	  var height_top = $(str).last().offset().top;
+	 	var height_top  = parseInt(height_top);
+	  var str2 = '.'+letter[i];
+	  	 
+		if (0< height_top && height_top < length) {
+	  	$(str2).css('color', '#FF0000');	
+	}else{
+			$(str2).css('color', '#000000');
+	}
+ }
+}
+});
+
+});
+
+
+</script>
+
+</body>
+</html>

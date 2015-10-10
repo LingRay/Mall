@@ -1,0 +1,160 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>92车生活</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="92车生活"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+  <link rel="canonical" href="http://www.example.com/">
+  -->
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header data-am-widget="header" class="am-header am-header-default">
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">车务代办</a>
+  </h1>
+    <div class="am-header-right am-header-nav">
+    <a href="javascript: void(0);"  id="nav_click" class="">
+      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+    </a>
+  </div>
+</header>
+
+<div style="height:70px"></div>
+
+<form action="cljg.html" class="am-form" id="doc-vld-msg">
+  <div class="am-g">
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">服务项目</span>
+              <select name="servicetype">
+                  <option value="1">驾驶证换证</option>
+                  <option value="2">60岁以上交体检表</option>
+                  <option value="3">补办驾驶证</option>
+                  <option value="4">车辆补办行车证</option>
+                  <option value="5">车辆补办铁牌</option>
+                  <option value="6">车辆过户</option>
+                  <option value="7">写外地委托书</option>
+                  <option value="8">车辆转出</option>
+                  <option value="9">车辆转入</option>
+                  <option value="10">驾驶证转入</option>
+                  <option value="11">代缴车船税</option>
+                  <option value="12">代缴纳统缴</option>
+                  <option value="13">机动车注销(报废)</option>
+                  <option value="14">机动车注册登记</option>
+                  <option value="15">驾驶证降级</option>
+              </select>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车主姓名</span>
+        <input class="am-form-field" type="text"  minlength="2" maxlength="20" data-validation-message="*请输入正确的姓名，以便与您联系"  placeholder="请输入您的姓名"  required/>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">您的性别</span>
+        <select>
+          <option value="1" selected>先生</option>
+          <option value="2">女士</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">    
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">手机号码</span>
+        <input class="am-form-field" type="tel"  minlength="11" maxlength="11" data-validation-message="*请输入正确的号码，以便与您联系"  placeholder="请输入手机号码" onkeyup="this.value = this.value.toUpperCase();"  required/>
+      </div>
+    </div>
+
+    <div class="am-u-sm-12">    
+      <div class="am-form-group">
+        <div>*目前仅为粤S牌提供代办服务</div>
+      </div>
+    </div> 
+
+    <div class="am-u-sm-12">    
+      <button class="am-btn am-btn-success am-radius am-btn-block" type="submit">提交</button>
+    </div>    
+  </div>
+</form>
+
+<script type="text/x-handlebars-template" id="amz-tpl">
+  {{>menu menu}}
+  {{>list_news list1}}
+  {{>list_news list2}}
+  {{>footer footer}}
+  {{>navbar navbar}}
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.js"></script>
+<script src="assets/js/app.js"></script>
+<script type="text/javascript">
+  $(function() {
+  $('#doc-vld-msg').validator({
+    onValid: function(validity) {
+      $(validity.field).closest('.am-form-group').find('.am-alert').hide();
+    },
+
+    onInValid: function(validity) {
+      var $field = $(validity.field);
+      var $group = $field.closest('.am-form-group');
+      var $alert = $group.find('.am-alert');
+      // 使用自定义的提示信息 或 插件内置的提示信息
+      var msg = $field.data('validationMessage') || this.getValidationMessage(validity);
+
+      if (!$alert.length) {
+        $alert = $('<div  class="am-alert am-alert-danger"></div>').hide().
+          appendTo($group);
+      }
+
+      $alert.html(msg).show();
+    }
+  });
+});
+</script>
+</body>
+</html>

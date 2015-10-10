@@ -1,0 +1,230 @@
+﻿<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>92车生活</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="92车生活"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+  <link rel="canonical" href="http://www.example.com/">
+  -->
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <style type="text/css">
+    #allmap{height:300px;width:100%;}
+    #l-map{height:300px;width:100%;display: none}
+    #loading{height:150px;width: 100%;text-align: center;line-height: 150px;display: none}
+  </style>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
+  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<!-- 页面内容 开发时删除 -->
+<header data-am-widget="header" class="am-header am-header-default">
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">地图详情</a>
+  </h1>
+  <div class="am-header-right am-header-nav">
+    <a href="javascript:;" id="nav_click" class="">
+      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+    </a>
+  </div>
+</header>
+
+<div style="height:50px"></div>
+  <div id="allmap"></div>
+  <div id="l-map"></div>  
+
+
+
+<div class="am-g am-sj-title-address">
+  <div class="am-u-sm-9">
+    <span class="am-icon-map-marker am-icon-sm"> 东莞市润德汽车用品中心2栋17号</span>
+  </div>
+  <div class="am-u-sm-3 am-pagination-right">
+    <a class="am-badge am-badge-danger  am-radius am-text-sm" href="javascript:getpath()">查看路线</a>&nbsp;
+  </div>  
+    <div class="am-u-sm-12">
+      <div id="loading"><i class="am-icon-spinner am-icon-pulse am-icon-lg" style=""></i></div>
+      <div id="r-result" class="am-scrollable-vertical"></div>
+    </div>
+ </div> 
+
+  
+
+<script type="text/x-handlebars-template" id="amz-tpl">
+  {{>menu menu}}
+  {{>list_news list1}}
+  {{>list_news list2}}
+  {{>footer footer}}
+  {{>navbar navbar}}
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.js"></script>
+<script src="assets/js/app.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=2DV2Ue9q7rra4YdVCF4agqUL"></script>
+<script type="text/javascript">
+  var GPS = {
+      PI : 3.14159265358979324,
+      x_pi : 3.14159265358979324 * 3000.0 / 180.0,
+      delta : function (lat, lon) {
+          // Krasovsky 1940
+          //
+          // a = 6378245.0, 1/f = 298.3
+          // b = a * (1 - f)
+          // ee = (a^2 - b^2) / a^2;
+          var a = 6378245.0; //  a: 卫星椭球坐标投影到平面地图坐标系的投影因子。
+          var ee = 0.00669342162296594323; //  ee: 椭球的偏心率。
+          var dLat = this.transformLat(lon - 105.0, lat - 35.0);
+          var dLon = this.transformLon(lon - 105.0, lat - 35.0);
+          var radLat = lat / 180.0 * this.PI;
+          var magic = Math.sin(radLat);
+          magic = 1 - ee * magic * magic;
+          var sqrtMagic = Math.sqrt(magic);
+          dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * this.PI);
+          dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) * this.PI);
+          return {'lat': dLat, 'lon': dLon};
+      },
+       
+      //WGS-84 to GCJ-02
+      gcj_encrypt : function (wgsLat, wgsLon) {
+          if (this.outOfChina(wgsLat, wgsLon))
+              return {'lat': wgsLat, 'lon': wgsLon};
+   
+          var d = this.delta(wgsLat, wgsLon);
+          return {'lat' : parseFloat(wgsLat) + parseFloat(d.lat),'lon' : parseFloat(wgsLon) + parseFloat(d.lon)};
+      },
+
+       bd_encrypt : function (gcjLat, gcjLon) {
+              var x = gcjLon, y = gcjLat;  
+              var z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * this.x_pi);  
+              var theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * this.x_pi);  
+              bdLon = z * Math.cos(theta) + 0.0065;  
+              bdLat = z * Math.sin(theta) + 0.006; 
+              return {'lat' : bdLat,'lon' : bdLon};
+      },
+
+      outOfChina : function (lat, lon) {
+          if (lon < 72.004 || lon > 137.8347)
+              return true;
+          if (lat < 0.8293 || lat > 55.8271)
+              return true;
+          return false;
+      },
+      transformLat : function (x, y) {
+          var ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x));
+          ret += (20.0 * Math.sin(6.0 * x * this.PI) + 20.0 * Math.sin(2.0 * x * this.PI)) * 2.0 / 3.0;
+          ret += (20.0 * Math.sin(y * this.PI) + 40.0 * Math.sin(y / 3.0 * this.PI)) * 2.0 / 3.0;
+          ret += (160.0 * Math.sin(y / 12.0 * this.PI) + 320 * Math.sin(y * this.PI / 30.0)) * 2.0 / 3.0;
+          return ret;
+      },
+      transformLon : function (x, y) {
+          var ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x));
+          ret += (20.0 * Math.sin(6.0 * x * this.PI) + 20.0 * Math.sin(2.0 * x * this.PI)) * 2.0 / 3.0;
+          ret += (20.0 * Math.sin(x * this.PI) + 40.0 * Math.sin(x / 3.0 * this.PI)) * 2.0 / 3.0;
+          ret += (150.0 * Math.sin(x / 12.0 * this.PI) + 300.0 * Math.sin(x / 30.0 * this.PI)) * 2.0 / 3.0;
+          return ret;
+      }
+  };
+
+    function getBaiduXy(xx,yy){
+            var arr1 = GPS.gcj_encrypt(yy,xx);
+            var arr2 = GPS.bd_encrypt(arr1['lat'],arr1['lon']);
+            return arr2;
+    }
+
+    
+    $(function() {
+      var geolocation = new $.AMUI.Geolocation();
+      geolocation.get({timeout: 7000}).then(function(position){
+        var myPoint = new BMap.Point(getBaiduXy(position.coords.longitude,position.coords.latitude)['lon'],getBaiduXy(position.coords.longitude,position.coords.latitude)['lat']);
+        var gpsPoint = new BMap.Point(getBaiduXy(113.769,22.98535)['lon'],getBaiduXy(113.769,22.98535)['lat']);        
+        //地图初始化
+        var bm = new BMap.Map("allmap");
+        bm.centerAndZoom(gpsPoint, 18);
+        bm.addControl(new BMap.NavigationControl());
+
+        var geolocationControl = new BMap.GeolocationControl();
+        bm.addControl(geolocationControl);
+
+          var marker = new BMap.Marker(gpsPoint);
+          bm.addOverlay(marker);
+          var label = new BMap.Label("德国力魔汽车养护专家",{offset:new BMap.Size(-40,-20)});
+          marker.setLabel(label); //添加百度label
+          bm.setCenter(gpsPoint);
+
+      }, function(err) {
+        alert('获取地理位置时发生错误，错误信息：<br>' + err);
+      });
+    });
+
+function getpath(){
+      $("#loading").show();
+      $("#allmap").hide();
+      $("#l-map").show();
+      var geolocation = new $.AMUI.Geolocation();
+      geolocation.get({timeout: 7000}).then(function(position){
+        var myPoint = new BMap.Point(getBaiduXy(position.coords.longitude,position.coords.latitude)['lon'],getBaiduXy(position.coords.longitude,position.coords.latitude)['lat']);
+        var gpsPoint = new BMap.Point(getBaiduXy(113.769,22.98535)['lon'],getBaiduXy(113.769,22.98535)['lat']);        
+
+          var map = new BMap.Map("l-map");
+          map.addControl(new BMap.NavigationControl());
+          map.addControl(new BMap.GeolocationControl());          
+          var transit = new BMap.DrivingRoute(map, {
+          renderOptions: {
+              map: map,
+              panel: "r-result",
+              enableDragging : true //起终点可进行拖拽
+            },  
+          });
+          transit.search({title:'',point: myPoint},{title:'德国力魔汽车养护专家',point: gpsPoint});
+          $("#loading").hide();
+
+      }, function(err) {
+        alert('获取地理位置时发生错误，错误信息：<br>' + err);
+      });  
+}
+
+</script>
+
+<!--<![endif]-->
+</body>
+</html>

@@ -1,0 +1,231 @@
+﻿<!doctype html>
+<html class="no-js">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>92车生活</title>
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
+
+		<!-- No Baidu Siteapp-->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+		<!-- Add to homescreen for Chrome on Android -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+		<!-- Add to homescreen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="92车生活" />
+		<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+		<!-- Tile icon for Win8 (144x144 + tile color) -->
+		<meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+		<meta name="msapplication-TileColor" content="#0e90d2">
+
+		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+	</head>
+	<body>
+		<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+			<div class="am-header-left am-header-nav">
+				<a href="javascript:history.go(-1)" class="">
+					<i class="am-header-icon am-icon-chevron-left"></i>
+				</a>
+			</div>
+			<h1 class="am-header-title">
+    <a href="#title-link" class="">服务分类</a>
+  </h1>
+			<div class="am-header-right am-header-nav">
+				<a href="javascript:;" id="nav_click" class="">
+					<i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+				</a>
+			</div>
+		</header>
+
+		<!--搜索隐藏层-->
+		<div class="am-popup" id="my-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title">关键字搜索</h4>
+					<span data-am-modal-close class="am-close am-close-alt am-icon-times"></span>
+				</div>
+				<div class="am-popup-bd">
+					<div class="am-input-group am-input-group-warning">
+						<input type="text" class="am-form-field" id="searchValue" placeholder="请输入搜索关键字">
+						<span class="am-input-group-btn">
+        <button class="am-btn am-btn-warning" type="button"><span class="am-icon-search"></span></button>
+						</span>
+					</div>
+					<p> 大家都在搜：
+						<br/><a>真功夫</a> <a>天天洗车</a><a>力魔保养</a> <a>日出沐足</a></p>
+				</div>
+			</div>
+		</div>
+		<!--搜索隐藏层end-->
+
+		<div class="am-g am-u-sm-centered am-g-collapse" style="background:#e6e6e6;">
+			<!--data-am-sticky-->
+			<div class="am-u-sm-3">
+				<select class="am-btn-block" id="service_select" data-am-selected="{btnWidth: '100%', btnSize: 'default'}">
+					<option value="全部"><span class="am-icon-sort-down">全部</span></option>
+					<option id="xiche" value="洗车">洗车</option>
+					<option id="dala" value="打蜡">打蜡</option>
+					<option id="weixiu" value="维修">维修</option>
+					<option id="jiance" value="检测">检测</option>
+					<option id="jiuyuan" value="救援">救援</option>
+
+				</select>
+			</div>
+			<div class="am-u-sm-3 ">
+				<select id="area_select" data-am-selected="{btnWidth: '100%', btnSize: 'default', btnStyle: ''}">
+					<option value="全城"><span class="am-icon-sort-down">全城</span></option>
+					<option value="东城区">东城区</option>
+					<option value="南城区">南城区</option>
+					<option value="莞城区">莞城区</option>
+					<option value="万江区">万江区</option>
+					<option value="松山湖区">松山湖区</option>
+					<option value="寮步镇">寮步镇</option>
+					<option value="长安镇">长安镇</option>
+					<option value="虎门镇">虎门镇</option>
+					<option value="厚街镇">厚街镇</option>
+					<option value="常平镇">常平镇</option>
+					<option value="大朗镇">大朗镇</option>
+					<option value="大岭山镇">大岭山镇</option>
+					<option value="道滘镇">道滘镇</option>
+					<option value="东坑镇">东坑镇</option>
+					<option value="凤岗镇">凤岗镇</option>
+					<option value="高埗镇">高埗镇</option>
+					<option value="横沥镇">横沥镇</option>
+					<option value="洪梅镇">洪梅镇</option>
+					<option value="黄江镇">黄江镇</option>
+					<option value="麻涌镇">麻涌镇</option>
+					<option value="企石镇">企石镇</option>
+					<option value="桥头镇">桥头镇</option>
+					<option value="清溪镇">清溪镇</option>
+					<option value="沙田镇">沙田镇</option>
+					<option value="石碣镇">石碣镇</option>
+					<option value="石龙镇">石龙镇</option>
+					<option value="石排镇">石排镇</option>
+					<option value="塘厦镇">塘厦镇</option>
+					<option value="望牛墩镇">望牛墩镇</option>
+					<option value="谢岗镇">谢岗镇</option>
+					<option value="樟木头镇">樟木头镇</option>
+					<option value="中堂镇">中堂镇</option>
+					<option value="茶山镇">茶山镇</option>
+				</select>
+			</div>
+			<div class="am-u-sm-3 ">
+				<select data-am-selected="{btnWidth: '100%', btnSize: 'default', btnStyle: ''}">
+					<option value="排序"><span class="am-icon-sort-down">排序</span></option>
+					<option value="离我最近">离我最近</option>
+					<option value="人气最高">人气最高</option>
+					<option value="评分最高">评分最高</option>
+					<option value="最新加入">最新加入</option>
+				</select>
+			</div>
+			<div class="am-u-sm-3">
+				<button style="background:#e6e6e6;height:41px" class="am-list-font am-btn-block am-btn" data-am-modal="{target: '#my-popup'}">
+					<i class="am-icon-search">搜索</i>
+				</button>
+			</div>
+		</div>
+
+		<!--服务列表-->
+		<div data-am-widget="list_news" class="am-list-news am-list-news-default" id="list_news">
+			<div class="am-list-news-bd">
+				<ul class="am-list">
+					<!--缩略图在标题左边-->
+					<script type="text/x-handlebars-template" id="servicelist_tpl">
+
+						{{>servicelist servicelist}}
+
+					</script>
+				</ul>
+				<div class="am-list-news-ft">
+					<a class="am-list-news-more am-btn am-btn-primary " href="javascript:;" id="get_more" data-am-loading="{spinner: 'circle-o-notch', loadingText: '加载中...'}">查看更多 &raquo;</a>
+				</div>
+			</div>
+		</div>
+		<!--分割空白-->
+		<div style="height: 70px;"></div>
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+			<a href="#top" title="回到顶部">
+				<span class="am-gotop-title">回到顶部</span>
+				<i class="am-gotop-icon am-icon-chevron-up"></i>
+			</a>
+		</div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/handlebars.min.js"></script>
+		<script src="assets/js/amazeui.widgets.helper.js"></script>
+		<script type="text/x-handlebars-template" id="amz-tpl">
+		 {{>navbar navbar}}
+		</script>
+		<script src="assets/js/app.js"></script>
+		<script type="text/javascript">
+			//获取商家数据
+		$.getJSON('shop.php?id=0&time=0&callback=',  function(data){ 
+				getServicelist(data);
+				//获取URL参数
+				var urlId = '';
+				var urlId = location.search;
+				
+				if (urlId != '') {
+					var urlId = urlId.split('?')[1];
+					var urlId = urlId.substr(3);
+			  	var serviceId = $('#' + urlId).val();
+						$(".am-selected-list").find("li:contains('" + serviceId + "')").trigger('click');
+				}else{
+					var urlId = '';
+				}
+				
+				selectService();
+				countStar();
+});
+		$(function() {
+				
+				$("#service_select").change(function() {
+					selectService();
+				});
+				$("#area_select").change(function() {
+					selectService();
+				});
+				$("#nav_click").on('click', function() {
+					$("#am_menu_toggle").click();
+				});
+				$("#get_more").on('click', function() {
+					getServicelist();
+					selectService();
+					countStar();
+				});
+				
+				var clickNumber = 1;
+				$("#get_more").on('click', function(){
+ 					 $.getJSON('shop.php?id=0&time=' +clickNumber+ '&callback=',  function(data){ 
+						getServicelist(data);
+						selectService();
+	        });
+    
+ 		   			clickNumber++;	
+     		});
+ 
+ $('#get_more').click(function () {
+  var $btn = $(this)
+  $btn.button('loading');
+    setTimeout(function(){
+      $btn.button('reset');
+  }, 2000);
+});
+});
+		</script>
+	</body>
+
+</html>

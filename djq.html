@@ -1,0 +1,176 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>92车生活</title>
+
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="92车生活"/>
+  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  	  <style type="text/css">
+  	.djq-border{
+  		border: 1px solid #cccccc;
+  		margin-top:10px ;
+  		padding-left: 15px;
+  		background: #F5F5F5;
+  	}
+  	.djq-border .icon{
+  		font-size: 8rem;
+  		color: #FBAD10;
+  	}
+  	
+  	.djq-border .am-u-sm-4{
+  		padding-left: 0px !important;
+  		padding-right: 0px !important;
+  	}
+  	.djq .am-radius{
+  		border-radius:15px;
+  	}
+  	.djq-border-hr{
+  		border-top: dashed #B7B7B7;
+  		font-size: 1.2rem;
+  		padding: 10px 0;
+  	}
+  	.djq-des{
+  		padding-top:25px ;
+  	}
+  	.djq-des div:last-child{
+  		color: #B7B7B7 !important;
+  	}
+  	.djq-price span{
+  		color: #FBAD10;
+  		font-size: 7rem;
+  	}
+  </style>
+
+</head>
+<body class="djq">
+
+<header data-am-widget="header" class="am-header am-header-default">
+  <div class="am-header-left am-header-nav">
+    <a href="javascript:history.go(-1)" class="">
+      <i class="am-header-icon am-icon-chevron-left"></i>
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">代金券</a>
+  </h1>
+  <div class="am-header-right am-header-nav">
+    <a href="javascript:;" id="nav_click" class="">
+      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+    </a>
+  </div>
+</header>
+
+<!--分割空白-->
+<div style="height:50px"></div>
+<div class="am-g am-u-sm-centered">
+	<div class="am-u-sm-12 djq-border am-radius">
+		<div class="am-u-sm-4 ">
+		  <i class="icon iconfont icon-xichezhishu"></i>
+		</div>
+	<div class="am-u-sm-4 djq-des">
+		<div>洗车券</div>
+		<div>仅用于洗车</div>
+	</div>
+	<div class="am-u-sm-4 djq-price">
+		<i class="am-icon-rmb"></i>
+		<span>10</span>
+	</div>
+	<div class="am-u-sm-12 djq-border-hr">
+  	<div class="am-u-sm-5 ">还有<span class="timehave">3</span>天过期</div>
+  	<div class="am-u-sm-7 am-text-right ">有效期至：<span class="timeout">2016-01-01</span></div>
+  </div>
+	</div>
+</div>
+<div class="am-g am-u-sm-centered">
+	<div class="am-u-sm-12 djq-border am-radius">
+		<div class="am-u-sm-4 ">
+		  <i class="icon iconfont icon-jiayou"></i>
+		</div>
+	<div class="am-u-sm-4 djq-des">
+		<div>加油券</div>
+		<div>仅用于加油</div>
+	</div>
+	<div class="am-u-sm-4 djq-price">
+		<i class="am-icon-rmb"></i>
+		<span>30</span>
+	</div>
+	<div class="am-u-sm-12 djq-border-hr">
+  	<div class="am-u-sm-5">还有<span class="timehave">3</span>天过期</div>
+  	<div class="am-u-sm-7 am-text-right">有效期至：<span class="timeout">2015-09-01</span></div>
+  </div>
+	</div>
+</div>
+
+<script type="text/x-handlebars-template" id="amz-tpl">
+  {{>navbar navbar}}
+</script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/handlebars.min.js"></script>
+<script src="assets/js/amazeui.widgets.helper.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+	$(function(){
+		$(".djq-border-hr").each(function (){
+//			$(this).css('background', 'red');
+			var timeout = $(this).find('.timeout').text();
+			var days = timeHave(timeout);
+			 if (days < 2) {
+			 	$(this).find('.am-u-sm-5').text('即将过期').css('color', 'red') ;
+			 }else{
+			 	$(this).find('.timehave').text(days) ;
+			 }
+		});
+			
+		
+		
+		function timeHave(timeout){
+			var today = new Date();
+			var ms = Date.parse(today);
+			
+			var Validity = new Object();
+					Validity.year = timeout.substr(0,4);
+					Validity.month = timeout.substr(5,2);
+					Validity.date = timeout.substr(8,2);
+			var stopDate = new Date(Validity.year, Validity.month, Validity.date);
+			var timehave = stopDate - today;
+// 		var timehaveValMs = ;
+   		var timehaveVal =  Date(timehave);
+   		var cha=((Date.parse(Validity.year+'/'+Validity.month+'/'+Validity.date) - (Date.parse(today))) / 86400000);   
+   		var cha = parseInt(cha+1);
+   	      return Math.abs(cha);  
+	       	
+	  }
+	});
+	
+	
+</script>
+</body>
+</html>

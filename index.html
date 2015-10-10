@@ -1,376 +1,393 @@
 ﻿<!doctype html>
 <html class="no-js">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>养车项目</title>
 
-  <!-- No Baidu Siteapp-->
-  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>养车项目</title>
 
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<!-- No Baidu Siteapp-->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="养车"/>
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+		<!-- Add to homescreen for Chrome on Android -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
 
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
-  <meta name="msapplication-TileColor" content="#0e90d2">
+		<!-- Add to homescreen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="养车" />
+		<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
 
-  <link rel="stylesheet" href="assets/css/amazeui.min.css">
-  <link rel="stylesheet" href="assets/css/app.css">
-   <style>
-   	  .am-list-news-bd .am-list{
-   	  	min-height:500px;
-   	  }
-   	  .am-dimmer{
-   	  	background: rgba(0,0,0,0);
-   	  }
-   	  .am-list-news-bd ul{
-   	  	background: #FFFFFF;
-   	  	min-height: 800px !important;
-   	  }
-   	  .am-modal {
-   	    position: absolute !important;
-   	    top: 6rem !important;
-   	  }
-   </style>
-</head>
-<body>
+		<!-- Tile icon for Win8 (144x144 + tile color) -->
+		<meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+		<meta name="msapplication-TileColor" content="#0e90d2">
 
-<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
-  <div class="am-header-left am-header-nav">
-    <a href="index.html" class="am-title-logo">
-    	<!--首页左上角logo-->
-      <!--<img src="assets/i/logo.png"/>-->
-    </a>
-  </div>
- 
-	<div class="am-header-icon am-search-icon "></div>
-  <div class="am-title-serch">
-    <input type="text" class="am-form-field-search am-round" readonly="true" data-am-modal="{target: '#my-popup'}"  placeholder="关键字搜索" />
-  </div>
-  <div class="am-header-right am-header-nav " style="display: block;">
-  	
-    <a href="javascript:;"class=" "  >
-      <i class="icon iconfont icon-liwu" style="font-size: 25px !important;"></i>
-    </a>
-    
-  </div>
-</header>
+		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+		<style>
+			.am-list-news-bd .am-list{
+		   	  	min-height:500px;
+		   	  }
+		   	  .am-dimmer{
+		   	  	background: rgba(0,0,0,0);
+		   	  }
+		   	  .am-list-news-bd ul{
+		   	  	background: #FFFFFF;
+		   	  	min-height: 800px !important;
+		   	  }
+		   	  .am-modal {
+		   	    position: absolute !important;
+		   	    top: 6rem !important;
+		   	  }
+		</style>
+	</head>
 
+	<body>
 
-<!--搜索隐藏层-->
+		<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+			<div class="am-header-left am-header-nav">
+				<a href="index.html" class="am-title-logo">
+					<!--首页左上角logo-->
+					<!--<img src="assets/i/logo.png"/>-->
+				</a>
+			</div>
 
-<div class="am-popup" id="my-popup">
-  <div class="am-popup-inner">
-    <div class="am-popup-hd">
-      <h4 class="am-popup-title">关键字搜索</h4>
-      <span data-am-modal-close
-            class="am-close am-close-alt am-icon-times"></span>
-    </div>
-    <div class="am-popup-bd">
-       <div class="am-input-group am-input-group-warning">
-      <input type="text" class="am-form-field" id="searchValue" placeholder="请输入搜索关键字">
-          <span class="am-input-group-btn">
-      <button class="am-btn am-btn-warning" type="button">
-       	<span class="am-icon-search"></span>
-      </button>
-      </span>
-    </div>
-    <p>  大家都在搜：<br/>
-    	<a href="">真功夫</a> 
-    	<a href="">天天洗车</a> 
-    	<a href="">汽车年检</a> 
-     </p>
-    </div> 
-  </div>
-</div>
+			<div class="am-header-icon am-search-icon "></div>
+			<div class="am-title-serch">
+				<input type="text" class="am-form-field-search am-round" readonly="true" data-am-modal="{target: '#my-popup'}" placeholder="关键字搜索" />
+			</div>
+			<div class="am-header-right am-header-nav " style="display: block;">
 
+				<a href="javascript:;" class=" ">
+					<i class="icon iconfont icon-liwu" style="font-size: 25px !important;"></i>
+				</a>
 
-<!--图片轮播广告-->
-<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":"false" }'>
-  <ul class="am-slides">
-    <li>
-      <img src="assets/i/banner/1.jpg">
-    </li>
-    <li>
-      <img src="assets/i/banner/2.jpg">
-    </li>
-    <li>
-      <img src="assets/i/banner/3.jpg">
-    </li>
-    <li>
-      <img src="assets/i/banner/4.jpg">
-    </li>
-    <li>
-      <img src="assets/i/banner/5.png">
-    </li>
-    <li>
-      <img src="assets/i/banner/6.jpg">
-    </li>
-    <li>
-      <img src="assets/i/banner/7.jpg">
-    </li>            
-  </ul>
-</div>
+			</div>
+		</header>
 
-<!--分割空白-->
-<div style="height:5px"></div>
+		<!--图片轮播广告-->
+		<div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":"false" }'>
+			<ul class="am-slides">
+				<li>
+					<img src="assets/i/banner/1.jpg">
+				</li>
+				<li>
+					<img src="assets/i/banner/2.jpg">
+				</li>
+				<li>
+					<img src="assets/i/banner/3.jpg">
+				</li>
+				<li>
+					<img src="assets/i/banner/4.jpg">
+				</li>
+				<li>
+					<img src="assets/i/banner/5.png">
+				</li>
+				<li>
+					<img src="assets/i/banner/6.jpg">
+				</li>
+				<li>
+					<img src="assets/i/banner/7.jpg">
+				</li>
+			</ul>
+		</div>
 
-<!--重要菜单-->
-<div data-am-widget="slider" id="index_tab" class="am-slider am-slider-a5" style="height: 165px;" data-am-slider='{"directionNav":false ,"slideshow":false}' >
- <ul class="am-slides">
- 	<!--menu1-->
- <li>
-<div class="am-g am-g-fixed">
-  <div class="am-u-sm-3">
-    <a href="servicelist.html?id=xiche" class="am-icon-btn am-danger">
-    	<i class="icon iconfont icon-xiche"></i>
-    </a> <br/>
-    <span class="am-navbar-label">
+		<!--分割空白-->
+		<div style="height:5px"></div>
+
+		<!--重要菜单-->
+		<div data-am-widget="slider" id="index_tab" class="am-slider am-slider-a5" style="height: 165px;" data-am-slider='{"directionNav":false ,"slideshow":false}'>
+			<ul class="am-slides">
+				<!--menu1-->
+				<li>
+					<div class="am-g am-g-fixed">
+						<div class="am-u-sm-3">
+							<a href="servicelist.html?id=xiche" class="am-icon-btn am-danger">
+								<i class="icon iconfont icon-xiche"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">
     	<a href="servicelist.html?id=xiche">洗车</a>
     </span>
-  </div>
+						</div>
 
-  <div class="am-u-sm-3"><a href="servicelist.html" class="am-icon-btn am-primary ">
-  	<i class="icon iconfont icon-baoyang"></i>
-  </a><br/>
-      <span class="am-navbar-label">保养</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="servicelist.html" class="am-icon-btn am-primary ">
+								<i class="icon iconfont icon-baoyang"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">保养</span>
+						</div>
 
-  <div class="am-u-sm-3">
-  	<a href="nscx.html" class="am-icon-btn am-danger">
-  		<i class="icon iconfont icon-nianshen"></i>
-    </a><br/>
-      <span class="am-navbar-label">查年审</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="nscx.html" class="am-icon-btn am-danger">
+								<i class="icon iconfont icon-nianshen"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">查年审</span>
+						</div>
 
-  <div class="am-u-sm-3">
-    <a href="wzcx.html" class="am-icon-btn am-primary">
-    	<i class="icon iconfont icon-weizhang"></i>
-    </a><br/>
-    <span class="am-navbar-label">查违章</span>
-  </div>
-</div>
+						<div class="am-u-sm-3">
+							<a href="wzcx.html" class="am-icon-btn am-primary">
+								<i class="icon iconfont icon-weizhang"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">查违章</span>
+						</div>
+					</div>
 
-<div class="am-g am-g-fixed">
+					<div class="am-g am-g-fixed">
 
-  <div class="am-u-sm-3"><a href="cxyh.html" class="am-icon-btn am-primary">
-  	<i class="icon iconfont icon-baoxian"></i>
-  </a><br/>
-      <span class="am-navbar-label">买保险</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="cxyh.html" class="am-icon-btn am-primary">
+								<i class="icon iconfont icon-baoxian"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">买保险</span>
+						</div>
 
-  <div class="am-u-sm-3"><a href="cwdb.html" class="am-icon-btn am-danger">
-    <i class="icon iconfont icon-chewu"></i>
-  </a><br/>
-      <span class="am-navbar-label">车务代办</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="cwdb.html" class="am-icon-btn am-danger">
+								<i class="icon iconfont icon-chewu"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">车务代办</span>
+						</div>
 
-  <div class="am-u-sm-3"><a href="jyyh.html" class="am-icon-btn am-primary">
-  	<i class="icon iconfont icon-jiayou"></i>
-  </a><br/>
-      <span class="am-navbar-label">充油卡</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="jyyh.html" class="am-icon-btn am-primary">
+								<i class="icon iconfont icon-jiayou"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">充油卡</span>
+						</div>
 
-  <div class="am-u-sm-3">
-  	<a href="servicelist.html?id=jiuyuan" class="am-icon-btn am-danger">
-  	<i class="icon iconfont icon-tuoche"></i>
-  </a><br/>
-      <span class="am-navbar-label">
+						<div class="am-u-sm-3">
+							<a href="servicelist.html?id=jiuyuan" class="am-icon-btn am-danger">
+								<i class="icon iconfont icon-tuoche"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">
       	<a href="servicelist.html?id=jiuyuan">救援</a>
       </span>
-  </div>
-</div>
-</li>
+						</div>
+					</div>
+				</li>
 
-<!--menu2-->
-<li>
-<div class="am-g am-g-fixed">
-	<div class="am-u-sm-3">
-  	<a href="servicelist.html?id=check" class="am-icon-btn am-danger">
-  		<i class="icon iconfont icon-chejian"></i>
-  	</a><br/>
-      <span class="am-navbar-label">检测</span>
-  </div>  
+				<!--menu2-->
+				<li>
+					<div class="am-g am-g-fixed">
+						<div class="am-u-sm-3">
+							<a href="servicelist.html?id=check" class="am-icon-btn am-danger">
+								<i class="icon iconfont icon-chejian"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">检测</span>
+						</div>
 
-  <div class="am-u-sm-3">
-  	<a href="servicelist.html?id=food" class="am-icon-btn am-primary">
-  		<i class="icon iconfont icon-meishi"></i>
-  	</a><br/>
-      <span class="am-navbar-label">美食</span>
-  </div>
-  
-  <div class="am-u-sm-3">
-    <a href="servicelist.html?id=xiche" class="am-icon-btn am-danger am-icon-car"></a><br/>
-    <span class="am-navbar-label">
+						<div class="am-u-sm-3">
+							<a href="servicelist.html?id=food" class="am-icon-btn am-primary">
+								<i class="icon iconfont icon-meishi"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">美食</span>
+						</div>
+
+						<div class="am-u-sm-3">
+							<a href="servicelist.html?id=xiche" class="am-icon-btn am-danger am-icon-car"></a>
+							<br/>
+							<span class="am-navbar-label">
     	洗车
     </span>
-  </div> 
+						</div>
 
-  <div class="am-u-sm-3">
-    <a href="wzcx.html" class="am-icon-btn am-primary am-icon-dashboard"></a><br/>
-    <span class="am-navbar-label">查违章</span>
-  </div>
-</div>
+						<div class="am-u-sm-3">
+							<a href="wzcx.html" class="am-icon-btn am-primary am-icon-dashboard"></a>
+							<br/>
+							<span class="am-navbar-label">查违章</span>
+						</div>
+					</div>
 
-<div class="am-g am-g-fixed">
+					<div class="am-g am-g-fixed">
 
-  <div class="am-u-sm-3">
-  	<a href="cxyh.html" class="am-icon-btn am-primary am-icon-bold"></a><br/>
-      <span class="am-navbar-label">买保险</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="cxyh.html" class="am-icon-btn am-primary am-icon-bold"></a>
+							<br/>
+							<span class="am-navbar-label">买保险</span>
+						</div>
 
-  <div class="am-u-sm-3">
-    <a href="cwdb.html" class="am-icon-btn am-danger am-icon-file"></a><br/>
-      <span class="am-navbar-label">车务代办</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="cwdb.html" class="am-icon-btn am-danger am-icon-file"></a>
+							<br/>
+							<span class="am-navbar-label">车务代办</span>
+						</div>
 
-  <div class="am-u-sm-3">
-  	<a href="jyyh.html" class="am-icon-btn am-primary icontfont icon-jiayouzhan">
-  		<i class="icon iconfont icon-jiayou"></i>
-  	</a><br/>
-      <span class="am-navbar-label">充油卡</span>
-  </div>
+						<div class="am-u-sm-3">
+							<a href="jyyh.html" class="am-icon-btn am-primary icontfont icon-jiayouzhan">
+								<i class="icon iconfont icon-jiayou"></i>
+							</a>
+							<br/>
+							<span class="am-navbar-label">充油卡</span>
+						</div>
 
-  <div class="am-u-sm-3">
-  	<a href="servicelist.html?id=jiuyuan" class="am-icon-btn am-danger am-icon-truck"></a><br/>
-      <span class="am-navbar-label">
+						<div class="am-u-sm-3">
+							<a href="servicelist.html?id=jiuyuan" class="am-icon-btn am-danger am-icon-truck"></a>
+							<br/>
+							<span class="am-navbar-label">
       	救援
       </span>
-  </div>
-</div>
-</li>
-<!--endpart2-->
-  </ul>
-</div>
-<!--分割空白-->
-<div style="height:15px"></div>
+						</div>
+					</div>
+				</li>
+				<!--endpart2-->
+			</ul>
+		</div>
+		<!--分割空白-->
+		<div style="height:15px"></div>
 
-<section class="am-panel am-panel-default">
-  <header class="am-panel-hd">
-    <h3 class="am-panel-title">本期特惠团</h3>  
-    <div style="float:right;margin-top:-25px;font-size:14px">
-      <span>剩:</span>
-      <span id="t_d">00天</span>
-      <span id="t_h">00时</span>
-      <span id="t_m">00分</span>
-      <span id="t_s">00秒</span>
-      <span>&nbsp;</span>
-    </div>
-  </header>
-  <div class="am-panel-bd">
-    <img src="assets/i/banner/7.jpg" class="am-img-responsive am-center" alt=""/>
-  </div>
-</section>
+		<section class="am-panel am-panel-default">
+			<header class="am-panel-hd">
+				<h3 class="am-panel-title">本期特惠团</h3>
+				<div style="float:right;margin-top:-25px;font-size:14px">
+					<span>剩:</span>
+					<span id="t_d">00天</span>
+					<span id="t_h">00时</span>
+					<span id="t_m">00分</span>
+					<span id="t_s">00秒</span>
+					<span>&nbsp;</span>
+				</div>
+			</header>
+			<div class="am-panel-bd">
+				<img src="assets/i/banner/7.jpg" class="am-img-responsive am-center" alt="" />
+			</div>
+		</section>
 
-<div data-am-widget="list_news" class="am-list-news am-list-news-default">
-  <!--列表标题-->
-  <div class="am-list-news-hd am-cf">
-    <!--带更多链接-->
-      <h2>精挑细选</h2>
-        <a href="javascript:;" class="">
-     			<span class="am-list-news-more am-fr" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 90, height: 120}">换一批</span>
-        </a>
-  </div>
-  <div class="am-list-news-bd">
-  	<div class="am-u-sm-12">
-  		<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">  
-	 			<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close></a>
-   			<i class="am-icon-spinner am-icon-spin " style="font-size: 5rem; color: #CCCCCC"></i>
-	  	</div>		   
-  	</div>
-  				 
-    <ul class="am-list">
-     <!--缩略图在标题左边-->
-				  <script type="text/x-handlebars-template" id="servicelist_tpl">
+		<div data-am-widget="list_news" class="am-list-news am-list-news-default">
+			<!--列表标题-->
+			<div class="am-list-news-hd am-cf">
+				<!--带更多链接-->
+				<h2>精挑细选</h2>
+				<a href="javascript:;" class="">
+					<span class="am-list-news-more am-fr" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 90, height: 120}">换一批</span>
+				</a>
+			</div>
+			<div class="am-list-news-bd">
+				<div class="am-u-sm-12">
+					<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+						<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close></a>
+						<i class="am-icon-spinner am-icon-spin " style="font-size: 5rem; color: #CCCCCC"></i>
+					</div>
+				</div>
+
+				<ul class="am-list">
+					<!--缩略图在标题左边-->
+					<script type="text/x-handlebars-template" id="servicelist_tpl">
 
 						{{>servicelist servicelist}}
 
 					</script>
-    </ul>
-  </div>
-</div>
+				</ul>
+			</div>
+		</div>
+		<!--搜索隐藏层-->
+		<div class="am-popup" id="my-popup">
+			<div class="am-popup-inner">
+				<div class="am-popup-hd">
+					<h4 class="am-popup-title">关键字搜索</h4>
+					<span data-am-modal-close class="am-close am-close-alt am-icon-times"></span>
+				</div>
+				<div class="am-popup-bd">
+					<div class="am-input-group am-input-group-warning">
+						<input type="text" class="am-form-field" id="searchValue" placeholder="请输入搜索关键字">
+						<span class="am-input-group-btn">
+      <button class="am-btn am-btn-warning" type="button">
+       	<span class="am-icon-search"></span>
+						</button>
+						</span>
+					</div>
+					<p> 大家都在搜：
+						<br/>
+						<a href="">真功夫</a>
+						<a href="">天天洗车</a>
+						<a href="">汽车年检</a>
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--分割空白-->
+		<div style="height: 80px;"></div>
+		<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
+			<a href="#top" title="回到顶部">
+				<span class="am-gotop-title">回到顶部</span>
+				<i class="am-gotop-icon am-icon-chevron-up"></i>
+			</a>
+		</div>
 
-<!--分割空白-->
-<div style="height: 80px;"></div>
-<div data-am-widget="gotop" class="am-gotop am-gotop-fixed">
-  <a href="#top" title="回到顶部">
-    <span class="am-gotop-title">回到顶部</span>
-    <i class="am-gotop-icon am-icon-chevron-up"></i>
-  </a>
-</div>
+		<script type="text/x-handlebars-template" id="amz-tpl">
+			{{>navbar navbar}}
+		</script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/handlebars.min.js"></script>
+		<script src="assets/js/amazeui.widgets.helper.js"></script>
+		<script src="assets/js/app.js"></script>
+		<script>
+			//$.getJSON('shop.php?id=top&time=null&callback=', function(data){ 
+			//		getShoplist(data);
+			//});
+			
+			$.getJSON('shop.json', function(data){ 
+							getServicelist(data);
+				});
+			
+			$(function(){
+				$(".am-form-field-search").bind('click',function(){
+					setTimeout(function(){ 
+						$("#searchValue").focus(); },	100);
+			});
+			//换一批
+			  $(".am-list-news-more").click(function (){
+			  	$(".am-list-news-bd li").remove();
+			  	$.getJSON('shop.json', function(data){ 
+							getServicelist(data);
+							
+			   			$(".am-close-spin").trigger('click');
+					});
+			  });
+			});
+			
+			//倒计时
+			function GetRTime(){     
+			    var EndTime= new Date('2015/12/20 00:00:00');     
+			    var NowTime = new Date();     
+			    var t =EndTime.getTime() - NowTime.getTime();     
+			    var d=0;     
+			    var h=0;     
+			    var m=0;     
+			    var s=0;     
+			    if(t>=0){       
+			      d=Math.floor(t/1000/60/60/24);       
+			      h=Math.floor(t/1000/60/60%24);       
+			      m=Math.floor(t/1000/60%60);       
+			      s=Math.floor(t/1000%60);     
+			    }
+			    if(h<10) h='0'+h;
+			    if(m<10) m='0'+m;
+			    if(s<10) s='0'+s;
+			
+			    document.getElementById("t_d").innerHTML = d + "天";     
+			    document.getElementById("t_h").innerHTML = h + "时";     
+			    document.getElementById("t_m").innerHTML = m + "分";     
+			    document.getElementById("t_s").innerHTML = s + "秒";   
+			 }   
+			setInterval(GetRTime,0);
+		</script>
+	</body>
 
-<script type="text/x-handlebars-template" id="amz-tpl">
-  {{>navbar navbar}}
-</script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/handlebars.min.js"></script>
-<script src="assets/js/amazeui.widgets.helper.js"></script>
-<script src="assets/js/app.js"></script>
-<script>
-//$.getJSON('shop.php?id=top&time=null&callback=', function(data){ 
-//		getShoplist(data);
-//});
-
-$.getJSON('shop.json', function(data){ 
-				getServicelist(data);
-	});
-
-$(function(){
-	$(".am-form-field-search").bind('click',function(){
-		setTimeout(function(){ 
-			$("#searchValue").focus(); },	100);
-});
-//换一批
-  $(".am-list-news-more").click(function (){
-  	$(".am-list-news-bd li").remove();
-  	$.getJSON('shop.json', function(data){ 
-				getServicelist(data);
-				
-   			$(".am-close-spin").trigger('click');
-		});
-  });
-});
-
-//倒计时
-function GetRTime(){     
-    var EndTime= new Date('2015/12/20 00:00:00');     
-    var NowTime = new Date();     
-    var t =EndTime.getTime() - NowTime.getTime();     
-    var d=0;     
-    var h=0;     
-    var m=0;     
-    var s=0;     
-    if(t>=0){       
-      d=Math.floor(t/1000/60/60/24);       
-      h=Math.floor(t/1000/60/60%24);       
-      m=Math.floor(t/1000/60%60);       
-      s=Math.floor(t/1000%60);     
-    }
-    if(h<10) h='0'+h;
-    if(m<10) m='0'+m;
-    if(s<10) s='0'+s;
-
-    document.getElementById("t_d").innerHTML = d + "天";     
-    document.getElementById("t_h").innerHTML = h + "时";     
-    document.getElementById("t_m").innerHTML = m + "分";     
-    document.getElementById("t_s").innerHTML = s + "秒";   
- }   
-setInterval(GetRTime,0); 
-</script> 
-</body>
 </html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="main"></div>
+	  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script>
+			$.getJSON('shop.php?callback=', function(result){
+				 var brandlist='';
+			   var letter = 's';
+        for(var i in result) {
+        brandlist=brandlist+'<li >' + result[i]['shop'] +  '</li>';
+          }
+      $(".main").html(brandlist);
+			});
+		</script>
+	</body>
+</html>
