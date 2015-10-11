@@ -120,28 +120,31 @@
 				</div>
 
 				<div class="am-u-sm-9">
-					<div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">购车价格</span>
+					<div class="am-input-group am-form-group am-input-group-default">
+						<span class="am-input-group-label">购车价格</span>
 						<input class="am-form-field" type="tel" minlength="1" maxlength="3" data-validation-message="*请输入正确的价格" placeholder="请输入价格" id="inbuycarprice" required/>
 					</div>
 				</div>
 				<div class="am-u-sm-3">
 					<div class="am-checkbox">万元</div>
 				</div>
-
 				<div class="am-u-sm-12">
-					<div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车主姓名</span>
+					<div class="am-input-group am-form-group am-input-group-default">
+						<span class="am-input-group-label">车主姓名</span>
 						<input class="am-form-field" type="text" minlength="2" maxlength="20" data-validation-message="*请输入正确的姓名，以便与您联系" placeholder="请输入您的姓名" id="buycarname" required/>
 					</div>
 				</div>
 
 				<div class="am-u-sm-12">
-					<div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">手机号码</span>
+					<div class="am-input-group am-form-group am-input-group-default">
+						<span class="am-input-group-label">手机号码</span>
 						<input class="am-form-field" type="tel" minlength="11" maxlength="11" data-validation-message="*请输入正确的号码，以便与您联系" id="buycarmobile" placeholder="请输入手机号码" onkeyup="this.value = this.value.toUpperCase();" required/>
 					</div>
 				</div>
 
 				<div class="am-u-sm-8">
-					<div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车牌号码</span>
+					<div class="am-input-group am-form-group am-input-group-default">
+						<span class="am-input-group-label">车牌号码</span>
 						<input type="text" id="usercarno" name="usercarno" placeholder="请输入您的车牌" value="粤S" datatype="s7-7" placeholder="您的车牌号码不能为空！" data-validation-message="*请输入正确的车牌号码！" onkeyup="this.value = this.value.toUpperCase();" minlength="7" maxlength="7">
 					</div>
 				</div>
@@ -155,7 +158,9 @@
 				</div>
 
 				<div class="am-u-sm-12">
-					<button class="am-btn am-btn-success am-radius am-btn-block" type="submit">立即报价</button>
+					<button class="am-btn am-btn-success am-radius am-btn-block" type="submit">
+						立即报价
+					</button>
 				</div>
 			</div>
 		</form>
@@ -293,8 +298,13 @@
 						</tbody>
 					</table>
 				</div>
-				<div class="am-margin-left-xs am-margin-right-xs"><span class="am-text-xs am-text-warning">*以上报价仅供参考，实际报价可能更低，请选择下一步</span>
-					<button class="am-btn am-btn-success am-radius am-btn-block" type="button">下一步，选择保险公司</button>
+				<div class="am-g">
+					<div class="am- am-text-xs am-text-warning">
+						*以上报价仅供参考，实际报价可能更低，请选择下一步
+					</div>
+					<button type="button" class="am-btn am-btn-success am-radius am-btn-block" >
+						下一步，选择保险公司
+					</button>
 				</div>
 
 			</div>
@@ -353,237 +363,253 @@
 			});
 
 			function newcar() {
+				var newVehicleFlag = document.getElementById('newVehicleFlag'),
+					userCarno = document.getElementById('usercarno'),
+					buyCarYear = document.getElementById('buycaryear'),
+					buyCarMonth = document.getElementById('buycarmonth');
 				if (document.getElementById('newVehicleFlag').checked) {
-					document.getElementById('usercarno').disabled = true;
-					document.getElementById('usercarno').value = "";
-					document.getElementById('usercarno').setAttribute('datatype', '');
-					document.getElementById('usercarno').setAttribute('placeholder', '');
-					document.getElementById('buycaryear').options[0].selected = true;
+					userCarno.disabled = true;
+					userCarno.value = "";
+					userCarno.setAttribute('datatype', '');
+					userCarno.setAttribute('placeholder', '');
+					buyCarYear.options[0].selected = true;
 					var dd = new Date();
 					var m = dd.getMonth();
-					document.getElementById('buycarmonth').options[m].selected = true;
+					buyCarMonth.options[m].selected = true;
 				} else {
-					document.getElementById('usercarno').value = "粤S";
-					document.getElementById('usercarno').disabled = false;
-					document.getElementById('usercarno').setAttribute('datatype', 's7-7');
+					userCarno.value = "粤S";
+					userCarno.disabled = false;
+					userCarno.setAttribute('datatype', 's7-7');
 				}
 			}
-
-			function changebox(box) {
-				if (box.checked) {
-					switch (box.id) {
-						case "chesunxian":
-							document.getElementById('csbj').checked = true;
-							document.getElementById('csbj').disabled = false;
-							document.getElementById('csbjshow').innerHTML = document.getElementById('csbjhide').value;
-							break;
-						case "sanzhexian":
-							document.getElementById('d3bj').checked = true;
-							document.getElementById('d3bj').disabled = false;
-							document.getElementById('d3bjshow').innerHTML = document.getElementById('d3bjhide').value;
-							document.getElementById('tbdsz').disabled = false;
-							break;
-						case "daoqiangxian":
-							document.getElementById('dqbj').checked = true;
-							document.getElementById('dqbj').disabled = false;
-							document.getElementById('dqbjshow').innerHTML = document.getElementById('dqbjhide').value;
-							break;
-						case "jsyxian":
-							if (document.getElementById('ckxian').checked) {
-								document.getElementById('rybj').checked = true;
-								document.getElementById('rybjshow').innerHTML = document.getElementById('rybjhide').value;
-							} else {
-								document.getElementById('rybj').checked = true;
-								document.getElementById('rybjshow').innerHTML = document.getElementById('jsybjhide').value;
-							};
-							document.getElementById('tbjsy').disabled = false;
-							break;
-						case "ckxian":
-							if (document.getElementById('jsyxian').checked) {
-								document.getElementById('rybj').checked = true;
-								document.getElementById('rybjshow').innerHTML = document.getElementById('rybjhide').value;
-							} else {
-								document.getElementById('rybj').checked = true;
-								document.getElementById('rybjshow').innerHTML = document.getElementById('ckbjhide').value;
-							};
-							document.getElementById('tbck').disabled = false;
-							break;
-						case "bolixian":
-							document.getElementById('tbboli').disabled = false;
-							break;
-						case "rybj":
-							if (document.getElementById('jsyxian').checked == true && document.getElementById('ckxian').checked == false) {
-								document.getElementById('rybjshow').innerHTML = document.getElementById('jsybjhide').value;
-								jisuan();
-								return;
-							} else if (document.getElementById('jsyxian').checked == false && document.getElementById('ckxian').checked == false) {
-								document.getElementById('rybjshow').innerHTML = 0;
-								jisuan();
-								return;
-							} else if (document.getElementById('jsyxian').checked == false && document.getElementById('ckxian').checked == true) {
-								document.getElementById('rybjshow').innerHTML = document.getElementById('ckbjhide').value;
-								jisuan();
-								return;
+			var csbj = document.getElementById('csbj'),
+				csbjShow = document.getElementById('csbjshow'),
+				d3bj = document.getElementById('d3bj'),
+				d3bjShow = document.getElementById('d3bjshow'),
+				tbdsz = document.getElementById('tbdsz'),
+				dqbj = document.getElementById('dqbj'),
+				dqbjShow = document.getElementById('dqbjshow'),
+				ckXian = document.getElementById('ckxian'),
+				rybj = document.getElementById('rybj'),
+				rybjShow = document.getElementById('rybjshow'),
+				tbjsy = document.getElementById('tbjsy'),
+				jsyXian = document.getElementById('jsyxian');
+ 
+					function changebox(box) {
+						if (box.checked) {
+							switch (box.id) {
+								case "chesunxian":
+									document.getElementById('csbj').checked = true;
+									document.getElementById('csbj').disabled = false;
+									csbjShow.innerHTML = document.getElementById('csbjhide').value;
+									break;
+								case "sanzhexian":
+									d3bj.checked = true;
+									d3bj.disabled = false;
+									d3bjShow.innerHTML = document.getElementById('d3bjhide').value;
+									tbdsz.disabled = false;
+									break;
+								case "daoqiangxian":
+									dqbj.checked = true;
+									dqbj.disabled = false;
+									dqbjShow.innerHTML = document.getElementById('dqbjhide').value;
+									break;
+								case "jsyxian":
+									if (ckXian.checked) {
+										rybj.checked = true;
+										rybjShow .innerHTML = document.getElementById('rybjhide').value;
+									} else {
+										rybj.checked = true;
+										rybjShow .innerHTML = document.getElementById('jsybjhide').value;
+									};
+									tbjsy.disabled = false;
+									break;
+								case "ckxian":
+									if (jsyXian.checked) {
+										rybj.checked = true;
+										rybjShow .innerHTML = document.getElementById('rybjhide').value;
+									} else {
+										rybj.checked = true;
+										rybjShow .innerHTML = document.getElementById('ckbjhide').value;
+									};
+									document.getElementById('tbck').disabled = false;
+									break;
+								case "bolixian":
+									document.getElementById('tbboli').disabled = false;
+									break;
+								case "rybj":
+									if (jsyXian.checked == true && ckXian.checked == false) {
+										rybjShow .innerHTML = document.getElementById('jsybjhide').value;
+										jisuan();
+										return;
+									} else if (jsyXian.checked == false && ckXian.checked == false) {
+										rybjShow .innerHTML = 0;
+										jisuan();
+										return;
+									} else if (jsyXian.checked == false && ckXian.checked == true) {
+										rybjShow .innerHTML = document.getElementById('ckbjhide').value;
+										jisuan();
+										return;
+									}
+									break;
 							}
-							break;
+							document.getElementById(box.id + 'show').innerHTML = document.getElementById(box.id + 'hide').value;
+						} else {
+							switch (box.id) {
+								case "chesunxian":
+									document.getElementById('csbj').checked = false;
+									document.getElementById('csbj').disabled = true;
+									csbjShow.innerHTML = 0;
+									break;
+								case "sanzhexian":
+									d3bj.checked = false;
+									d3bj.disabled = true;
+									d3bjShow.innerHTML = 0;
+									tbdsz.disabled = true;
+									break;
+								case "daoqiangxian":
+									dqbj.checked = false;
+									dqbj.disabled = true;
+									dqbjShow.innerHTML = 0;
+									break;
+								case "jsyxian":
+									if (ckXian.checked) {
+										rybj.checked = true;
+										rybjShow.innerHTML = document.getElementById('ckbjhide').value;
+									} else {
+										rybj.checked = false;
+										rybjShow.innerHTML = 0;
+									};
+									tbjsy.disabled = true;
+									break;
+								case "ckxian":
+									if (jsyXian.checked) {
+										rybj.checked = true;
+										rybjShow.innerHTML = document.getElementById('jsybjhide').value;
+									} else {
+										rybj.checked = false;
+										rybjShow.innerHTML = 0;
+									};
+									document.getElementById('tbck').disabled = true;
+									break;
+								case "bolixian":
+									document.getElementById('tbboli').disabled = true;
+									break;
+							}
+							document.getElementById(box.id + 'show').innerHTML = 0;
+						}
+						jisuan();
 					}
-					document.getElementById(box.id + 'show').innerHTML = document.getElementById(box.id + 'hide').value;
-				} else {
-					switch (box.id) {
-						case "chesunxian":
-							document.getElementById('csbj').checked = false;
-							document.getElementById('csbj').disabled = true;
-							document.getElementById('csbjshow').innerHTML = 0;
-							break;
-						case "sanzhexian":
-							document.getElementById('d3bj').checked = false;
-							document.getElementById('d3bj').disabled = true;
-							document.getElementById('d3bjshow').innerHTML = 0;
-							document.getElementById('tbdsz').disabled = true;
-							break;
-						case "daoqiangxian":
-							document.getElementById('dqbj').checked = false;
-							document.getElementById('dqbj').disabled = true;
-							document.getElementById('dqbjshow').innerHTML = 0;
-							break;
-						case "jsyxian":
-							if (document.getElementById('ckxian').checked) {
-								document.getElementById('rybj').checked = true;
-								document.getElementById('rybjshow').innerHTML = document.getElementById('ckbjhide').value;
-							} else {
-								document.getElementById('rybj').checked = false;
-								document.getElementById('rybjshow').innerHTML = 0;
-							};
-							document.getElementById('tbjsy').disabled = true;
-							break;
-						case "ckxian":
-							if (document.getElementById('jsyxian').checked) {
-								document.getElementById('rybj').checked = true;
-								document.getElementById('rybjshow').innerHTML = document.getElementById('jsybjhide').value;
-							} else {
-								document.getElementById('rybj').checked = false;
-								document.getElementById('rybjshow').innerHTML = 0;
-							};
-							document.getElementById('tbck').disabled = true;
-							break;
-						case "bolixian":
-							document.getElementById('tbboli').disabled = true;
-							break;
+
+					function jisuan() {
+						var newtotalprice = parseInt(document.getElementById("chesunxianshow").innerHTML) + parseInt(document.getElementById("sanzhexianshow").innerHTML) + parseInt(document.getElementById("jsyxianshow").innerHTML) + parseInt(document.getElementById("ckxianshow").innerHTML) + parseInt(document.getElementById("daoqiangxianshow").innerHTML) + parseInt(document.getElementById("bolixianshow").innerHTML) + parseInt(document.getElementById("csbjshow").innerHTML) + parseInt(document.getElementById("d3bjshow").innerHTML) + parseInt(document.getElementById("rybjshow").innerHTML) + parseInt(document.getElementById("dqbjshow").innerHTML);
+						document.getElementById("totalshow2").innerHTML = newtotalprice;
+						document.getElementById("tianping").innerHTML = parseInt(newtotalprice * 0.65) + "元";
+						document.getElementById("pingan").innerHTML = parseInt(newtotalprice * 0.75) + "元";
+						document.getElementById("taipingyang").innerHTML = parseInt(newtotalprice * 0.72) + "元";
+						document.getElementById("picc").innerHTML = parseInt(newtotalprice * 0.7) + "元";
 					}
-					document.getElementById(box.id + 'show').innerHTML = 0;
-				}
-				jisuan();
-			}
 
-			function jisuan() {
-				var newtotalprice = parseInt(document.getElementById("chesunxianshow").innerHTML) + parseInt(document.getElementById("sanzhexianshow").innerHTML) + parseInt(document.getElementById("jsyxianshow").innerHTML) + parseInt(document.getElementById("ckxianshow").innerHTML) + parseInt(document.getElementById("daoqiangxianshow").innerHTML) + parseInt(document.getElementById("bolixianshow").innerHTML) + parseInt(document.getElementById("csbjshow").innerHTML) + parseInt(document.getElementById("d3bjshow").innerHTML) + parseInt(document.getElementById("rybjshow").innerHTML) + parseInt(document.getElementById("dqbjshow").innerHTML);
-				document.getElementById("totalshow2").innerHTML = newtotalprice;
-				document.getElementById("tianping").innerHTML = parseInt(newtotalprice * 0.65) + "元";
-				document.getElementById("pingan").innerHTML = parseInt(newtotalprice * 0.75) + "元";
-				document.getElementById("taipingyang").innerHTML = parseInt(newtotalprice * 0.72) + "元";
-				document.getElementById("picc").innerHTML = parseInt(newtotalprice * 0.7) + "元";
-			}
-
-			function changeselect(opt) {
-				switch (opt.id) {
-					case "tbboli":
-						if (document.getElementById('bolixian').checked) {
-							changeboli($("#inbuycarprice").val(), opt.value);
-							jisuan();
+					function changeselect(opt) {
+						switch (opt.id) {
+							case "tbboli":
+								if (document.getElementById('bolixian').checked) {
+									changeboli($("#inbuycarprice").val(), opt.value);
+									jisuan();
+								}
+								break;
+							case "tbdsz":
+								if (document.getElementById('sanzhexian').checked) {
+									changed3(opt);
+									jisuan();
+								}
+								break;
+							case "tbjsy":
+								if (jsyXian.checked) {
+									changejsy(opt.value);
+									jisuan();
+								}
+								break;
+							case "tbck":
+								if (ckXian.checked) {
+									changeck(opt.value, bsites);
+									jisuan();
+								}
+								break;
 						}
-						break;
-					case "tbdsz":
-						if (document.getElementById('sanzhexian').checked) {
-							changed3(opt);
-							jisuan();
-						}
-						break;
-					case "tbjsy":
-						if (document.getElementById('jsyxian').checked) {
-							changejsy(opt.value);
-							jisuan();
-						}
-						break;
-					case "tbck":
-						if (document.getElementById('ckxian').checked) {
-							changeck(opt.value, bsites);
-							jisuan();
-						}
-						break;
-				}
-			}
-			var cartype = document.getElementById("cartype").value;
-			var sites = document.getElementById("sites").value;
-			var bsites = document.getElementById("bsites").value;
-			var selT = document.getElementById("selT").value;
-			var tbdsz = document.getElementById('tbdsz');
-			var tbjsy = document.getElementById('tbjsy').value;
-			var tbck = document.getElementById('tbck').value;
-			var tbboli = document.getElementById("tbboli").value;
-
-			function bxload() {
-				var buymoney = $("#inbuycarprice").val();
-				var dd = new Date();
-				var y = dd.getFullYear();
-				var m = dd.getMonth() + 1;
-				var countmonth = (y - $("#buycaryear").val()) * 12 + (m - $("#buycarmonth").val());
-				f_getRealMoney(cartype, sites, selT, buymoney, countmonth);
-				f_feecomp(buymoney, countmonth, selT);
-				f_countd3(tbdsz);
-				f_jsyzrx(tbjsy);
-				f_ckzrx(tbck, bsites);
-				f_countdqx();
-				f_countblpsx(buymoney, tbboli);
-				f_countBj_jd();
-				f_countBj_d3();
-				f_countBj_ry();
-				f_countBj_dq();
-				countPrice();
-			}
-
-			function openmodel() {
-				if (!$("#inbuycarprice").val() || !$("#buycarname").val() || !$("#buycarmobile").val()) {
-					return false;
-				}
-				$("#buycarprice").text($("#inbuycarprice").val());
-				bxload();
-				$('#my-popup').modal('open');
-				return false;
-			}
-
-			function setmonth() {
-					var dd = new Date();
-					var y = dd.getFullYear();
-					var m = dd.getMonth() + 1;
-					if (m < 10) m = "0" + m;
-					if ($("#buycaryear").val() == y) {
-						if ($("#buycarmonth").val() > m) $("#buycarmonth").val(m);
 					}
-				}
-				// function movemonth(){
-				//   var dd = new Date();
-				//   var y=dd.getFullYear();
-				//   var m=dd.getMonth()+1;
-				//   if($("#buycaryear").val()==y){
-				//     $("#buycarmonth option").each(function(){
-				//       if($(this).val() > m){
-				//       $(this).remove();
-				//       }
-				//     });
-				//   }
-				// }
-				// function addmonth(){
-				//     $("#buycarmonth option").each(function(){
-				//       $(this).remove();
-				//     });
-				//     var dd = new Date();
-				//     var m=dd.getMonth()+1;
-				//     if(m<10) m="0"+m;
-				//     for(var i=1;i<=12;i++){
-				//       if(i<10) i="0"+i;
-				//         $("#buycarmonth").append("<option value='"+i+"'>"+i+"月</option>");
-				//     }  
-				// }
+					var cartypeValue = $("#cartype").val();
+					    sitesValue = $("#sites").val(),
+					    bsitesValue = $("#bsites").val(),
+					    selTValue = $("#selT").val(),
+					    tbjsyValue = $("#tbjsy").val(),
+					    tbckValue = $("#tbck").val(),
+					    tbboliValue = $("#tbboli").val(),
+					    buyCarMonthValue = $("#buycarmonth").val(),
+              inBuymoneyValue = $("#inbuycarprice").val();
+              
+					function bxload() {
+						var dd = new Date();
+						var y = dd.getFullYear();
+						var m = dd.getMonth() + 1;
+						var countmonth = (y - $("#buycaryear").val()) * 12 + (m - buyCarMonthValue);
+						f_getRealMoney(cartypeValue, sitesValue, selTValue, inBuymoneyValue, countmonth);
+						f_feecomp(inBuymoneyValue, countmonth, selTValue);
+						f_countd3(tbdsz);
+						f_jsyzrx(tbjsyValue);
+						f_ckzrx(tbckValue, bsitesValue);
+						f_countdqx();
+						f_countblpsx(inBuymoneyValue, tbboliValue);
+						f_countBj_jd();
+						f_countBj_d3();
+						f_countBj_ry();
+						f_countBj_dq();
+						countPrice();
+					}
+
+					function openmodel() {
+						if (!$("#inbuycarprice").val() || !$("#buycarname").val() || !$("#buycarmobile").val()) {
+							return false;
+						}
+						$("#buycarprice").text($("#inbuycarprice").val());
+						bxload();
+						$('#my-popup').modal('open');
+						return false;
+					}
+
+					function setmonth() {
+						var dd = new Date();
+						var y = dd.getFullYear();
+						var m = dd.getMonth() + 1;
+						if (m < 10) m = "0" + m;
+						if ($("#buycaryear").val() == y) {
+							if (buyCarMonthValue > m) $("#buycarmonth").val(m);
+						}
+					}
+					// function movemonth(){
+					//   var dd = new Date();
+					//   var y=dd.getFullYear();
+					//   var m=dd.getMonth()+1;
+					//   if($("#buycaryear").val()==y){
+					//     $("#buycarmonth option").each(function(){
+					//       if($(this).val() > m){
+					//       $(this).remove();
+					//       }
+					//     });
+					//   }
+					// }
+					// function addmonth(){
+					//     $("#buycarmonth option").each(function(){
+					//       $(this).remove();
+					//     });
+					//     var dd = new Date();
+					//     var m=dd.getMonth()+1;
+					//     if(m<10) m="0"+m;
+					//     for(var i=1;i<=12;i++){
+					//       if(i<10) i="0"+i;
+					//         $("#buycarmonth").append("<option value='"+i+"'>"+i+"月</option>");
+					//     }  
+					// }
 		</script>
 	</body>
 
