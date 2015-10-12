@@ -1,164 +1,172 @@
 ﻿<!doctype html>
 <html class="no-js">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>车生活</title>
 
-  <!-- Set render engine for 360 browser -->
-  <meta name="renderer" content="webkit">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>车生活</title>
 
-  <!-- No Baidu Siteapp-->
-  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+		<!-- Set render engine for 360 browser -->
+		<meta name="renderer" content="webkit">
 
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+		<!-- No Baidu Siteapp-->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
 
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+		<link rel="icon" type="image/png" href="assets/i/favicon.png">
 
-  <!-- Add to homescreen for Safari on iOS -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="车生活"/>
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+		<!-- Add to homescreen for Chrome on Android -->
+		<meta name="mobile-web-app-capable" content="yes">
+		<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
 
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
-  <meta name="msapplication-TileColor" content="#0e90d2">
+		<!-- Add to homescreen for Safari on iOS -->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="apple-mobile-web-app-title" content="车生活" />
+		<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
 
-  <link rel="stylesheet" href="assets/css/amazeui.min.css">
-  <link rel="stylesheet" href="assets/css/app.css">
-  <style type="text/css">
-		.am-tab-panel img{width: 100%}
-		blockquote{border-left: 0px;font-size: 13px;color: #F37B1D;padding-top: 0px;padding-bottom: 0px;}
-  </style>
+		<link rel="stylesheet" href="assets/css/amazeui.min.css">
+		<link rel="stylesheet" href="assets/css/app.css">
+		<style type="text/css">
+			.am-tab-panel img {
+				width: 100%
+			}
+			blockquote {
+				border-left: 0px;
+				font-size: 13px;
+				color: #F37B1D;
+				padding-top: 0px;
+				padding-bottom: 0px;
+			}
+			#sumprice {
+				color: #F37B1D;
+				font-weight: bold;
+			}
+		</style>
 
-</head>
-<body>
-<header data-am-widget="header" class="am-header am-header-default">
-  <div class="am-header-left am-header-nav">
-    <a href="javascript:history.go(-1)" class="">
-      <i class="am-header-icon am-icon-chevron-left"></i>
-    </a>
-  </div>
-  <h1 class="am-header-title">
+	</head>
+
+	<body>
+		<header data-am-widget="header" class="am-header am-header-default">
+			<div class="am-header-left am-header-nav">
+				<a href="javascript:history.go(-1)" class="">
+					<i class="am-header-icon am-icon-chevron-left"></i>
+				</a>
+			</div>
+			<h1 class="am-header-title">
     <a href="#title-link" class="">订单提交</a>
   </h1>
-  <div class="am-header-right am-header-nav">
-    <a href="javascript:;" id="nav_click" class="">
-      <i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
-    </a>
-  </div>
-</header>
+			<div class="am-header-right am-header-nav">
+				<a href="javascript:;" id="nav_click" class="">
+					<i class="am-menu-toggle-icon am-icon-th-large am-icon-sm"></i>
+				</a>
+			</div>
+		</header>
 
-<div style="height: 50px;"></div>
-<div class="am-panel am-panel-default">
-  <div class="am-panel-hd" style="line-height:60px;font-size:18px">人工普通洗车</div>
+		<div style="height: 50px;"></div>
+		<div class="am-panel am-panel-default">
+			<div class="am-panel-hd" style="line-height:60px;font-size:18px">人工普通洗车</div>
 
-  <div class="am-panel-bd">
-    <div class="am-g am-g-collapse">
-      <div class="am-u-sm-3">价格：</div>
-      <div class="am-u-sm-9 am-pagination-right">18元</div>
-      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>      
-      <div class="am-u-sm-3">数量：</div>
-      <div class="am-u-sm-9 am-pagination-right">
-        <button class="am-btn am-btn-success am-radius am-order-form" disabled onclick="orderminus()" id="minusbutton">
-          <i class="am-icon-minus"></i>
-        </button>
-        <input type="tel" maxlength="2" onblur="orderchange()" style="width:50px;display:inline" class="am-form-field am-radius am-order-form" value="1" id="ordernum" />
-        <button class="am-btn am-btn-success am-radius am-order-form" onclick="orderadd()" id="addbutton">
-          <i class="am-icon-plus"></i>
-        </button>        
-      </div>
-      <div class="am-u-sm-12"><hr data-am-widget="divider" style="" class="am-divider am-divider-default"/></div>       
-      <div class="am-u-sm-3">总价：</div>
-      <div class="am-u-sm-9 am-pagination-right"><span style="color:#F37B1D;font-weight:bold" id="sumprice">18</span>元</div>            
-    </div>
-  </div>
-</div>
+			<div class="am-panel-bd">
+				<div class="am-g am-g-collapse">
+					<div class="am-u-sm-3">价格：</div>
+					<div class="am-u-sm-9 am-pagination-right">18元</div>
+					<div class="am-u-sm-12">
+						<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+					</div>
+					<div class="am-u-sm-3">数量：</div>
+					<div class="am-u-sm-9 am-pagination-right">
+						<button class="am-btn am-btn-success am-radius am-order-form" disabled onclick="orderminus()" id="minusbutton">
+							<i class="am-icon-minus"></i>
+						</button>
+						<input type="tel" maxlength="2" onblur="orderchange()" style="width:50px;display:inline" class="am-form-field am-radius am-order-form" value="1" id="ordernum" />
+						<button class="am-btn am-btn-success am-radius am-order-form" onclick="orderadd()" id="addbutton">
+							<i class="am-icon-plus"></i>
+						</button>
+					</div>
+					<div class="am-u-sm-12">
+						<hr data-am-widget="divider" style="" class="am-divider am-divider-default" />
+					</div>
+					<div class="am-u-sm-3">总价：</div>
+					<div class="am-u-sm-9 am-pagination-right">
+						<span id="sumprice">18</span>元</div>
+				</div>
+			</div>
+		</div>
 
+		<div class="am-g ">
+			<div class="am-u-sm-6 consumer-tip">
+					☑不消费随时退款
+				</div>
+				<div class="am-u-sm-6 consumer-tip">
+					☑过期自动退款
+				</div>
+		</div>
+		<div class="am-g am-margin-top-lg">
+			<div class="am-u-sm-12">
+				<a href="confirmorder.html">
+					<button class="am-btn am-btn-success am-radius am-btn-block">
+						提交订单
+					</button>
+				</a>
+			</div>
+		</div>
 
-  <div class="am-g">
-    <div style="color:gray;font-size:12px;text-align:center;line-height:40px">
-      <div class="am-u-sm-6">
-    	    ☑不消费随时退款
-      </div>
-      <div class="am-u-sm-6">
-                       ☑过期自动退款
-      </div>
-    </div>    
-  </div> 
-  <div class="am-g">
-    <div class="am-u-sm-12">
-      <a href="confirmorder.html">
-      	<button class="am-btn am-btn-success am-radius am-btn-block">
-      		提交订单
-        </button>
-      </a>
-    </div>   
-  </div>
+		<script type="text/x-handlebars-template" id="amz-tpl">
+			{{>navbar navbar}}
+		</script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/amazeui.min.js"></script>
+		<script src="assets/js/handlebars.min.js"></script>
+		<script src="assets/js/amazeui.widgets.helper.js"></script>
+		<script src="assets/js/app.js"></script>
+		<script type="text/javascript">
+			var ordernum = $('#ordernum'),
+				minusbutton = $('#minusbutton'),
+				addbutton = $('#addbutton'),
+				sumprice = $('#sumprice');
 
+			function orderadd() {
+				minusbutton.attr("disabled", false);
+				if (parseInt(ordernum.val()) < 99) {
+					ordernum.val(parseInt(ordernum.val()) + 1);
+					if (parseInt(ordernum.val()) > 98) {
+						addbutton.attr("disabled", true);
+					}
+				}
+				sumprice.text(parseInt(ordernum.val()) * 18);
+			}
 
-<script type="text/x-handlebars-template" id="amz-tpl">
-  {{>navbar navbar}}
-</script>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/amazeui.min.js"></script>
-<script src="assets/js/handlebars.min.js"></script>
-<script src="assets/js/amazeui.widgets.helper.js"></script>
-<script src="assets/js/app.js"></script>
-<script type="text/javascript">
-	var ordernum = $('#ordernum'),
-			minusbutton = $('#minusbutton'),
-			addbutton = $('#addbutton'),
-			sumprice = $('#sumprice');
-			
-  function orderadd(){
-    minusbutton.attr("disabled",false);
-    if(parseInt(ordernum.val())<99){
-      ordernum.val(parseInt(ordernum.val())+1);
-            if(parseInt(ordernum.val())>98){
-        addbutton.attr("disabled",true);
-      }
-    }
-    sumprice.text(parseInt(ordernum.val())*18);
-  }
+			function orderminus() {
+				addbutton.attr("disabled", false);
+				if (parseInt(ordernum.val()) > 1) {
+					ordernum.val(parseInt(ordernum.val()) - 1);
+					if (parseInt(ordernum.val()) < 2) {
+						minusbutton.attr("disabled", true);
+					}
+				}
+				sumprice.text(parseInt(ordernum.val()) * 18);
+			}
 
-  function orderminus(){
-    addbutton.attr("disabled",false);    
-    if(parseInt(ordernum.val())>1){
-      ordernum.val(parseInt(ordernum.val())-1);
-      if(parseInt(ordernum.val())<2){
-        minusbutton.attr("disabled",true);
-      }
-    }
-    sumprice.text(parseInt(ordernum.val())*18);    
-  }
+			function orderchange() {
+				if (parseInt(ordernum.val()) <= 1 || isNaN(ordernum.val())) {
+					ordernum.val(1);
+					minusbutton.attr("disabled", true);
+					addbutton.attr("disabled", false);
+				}
+				if (parseInt(ordernum.val()) > 98) {
+					minusbutton.attr("disabled", false);
+					addbutton.attr("disabled", true);
+				}
+				if (parseInt(ordernum.val()) > 1 && parseInt(ordernum.val()) < 99) {
+					minusbutton.attr("disabled", false);
+					addbutton.attr("disabled", false);
+				}
+				sumprice.text(parseInt(ordernum.val()) * 18);
+			}
+		</script>
+	</body>
 
-
-  function orderchange(){
-   			
-    if(parseInt(ordernum.val())<=1 || isNaN(ordernum.val())){
-      ordernum.val(1);
-      minusbutton.attr("disabled",true);
-      addbutton.attr("disabled",false);
-    }
-    if(parseInt(ordernum.val())>98){
-      minusbutton.attr("disabled",false);
-      addbutton.attr("disabled",true);
-    } 
-
-    if(parseInt(ordernum.val())>1 && parseInt(ordernum.val())<99){
-      minusbutton.attr("disabled",false);
-      addbutton.attr("disabled",false);
-    } 
-    sumprice.text(parseInt(ordernum.val())*18);          
-  }
-</script>
-</body>
 </html>

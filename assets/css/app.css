@@ -583,7 +583,6 @@ a.am-detail-a:visited {
 .am-accordion-gapped .am-accordion-item {
 	background: #e4e4e4
 }
-
 .am-menu-toggle {
 	display: none !important;
 }
@@ -701,8 +700,7 @@ a.am-detail-a:visited {
 	left: 0;
 	color: #FFFFFF;
 }
-
-#index_tab i{
+#index_tab i {
 	font-size: 3rem !important;
 	line-height: 1 !important;
 }
@@ -763,6 +761,12 @@ a.am-detail-a:visited {
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 	resize: vertical;
+}
+.consumer-tip {
+	color: gray;
+	font-size: 1.4rem;
+	text-align: center;
+	line-height: 30px;
 }
 .count-star {
 	line-height: 14px !important;

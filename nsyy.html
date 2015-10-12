@@ -27,23 +27,10 @@
   <meta name="apple-mobile-web-app-title" content="车生活"/>
   <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
 
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
-  <meta name="msapplication-TileColor" content="#0e90d2">
-
-  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-  <!--
-  <link rel="canonical" href="http://www.example.com/">
-  -->
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
   <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
-  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-  以获得更好的体验！</p>
-<![endif]-->
 
 <header data-am-widget="header" class="am-header am-header-default">
   <div class="am-header-left am-header-nav">
@@ -61,18 +48,17 @@
   </div>
 </header>
 
-
-<div style="height:50px"></div>
+<div style="height:70px"></div>
 <form action="wzresult.html" class="am-form" id="doc-vld-msg">
   <div class="am-g">
     <div class="am-u-sm-12">    
-      <div class="am-input-group am-form-group am-input-group-sm"><span class="am-input-group-label">车主姓名</span>
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车主姓名</span>
         <input class="am-form-field" type="text"  minlength="2" maxlength="20" data-validation-message="*请输入正确的姓名，以便与您联系"  placeholder="请输入您的姓名"  required/>
       </div>
     </div>
 
     <div class="am-u-sm-12">    
-      <div class="am-input-group am-form-group am-input-group-sm"><span class="am-input-group-label">您的性别</span>
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">您的性别</span>
         <select>
           <option value="1" selected>先生</option>
           <option value="2">女士</option>
@@ -81,25 +67,25 @@
     </div>
 
     <div class="am-u-sm-12">    
-      <div class="am-input-group am-form-group am-input-group-sm"><span class="am-input-group-label">手机号码</span>
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">手机号码</span>
         <input class="am-form-field" type="tel"  minlength="11" maxlength="11" data-validation-message="*请输入正确的号码，以便与您联系"  placeholder="请输入手机号码" onkeyup="this.value = this.value.toUpperCase();"  required/>
       </div>
     </div>
 
    <div class="am-u-sm-12">    
-      <div class="am-input-group am-form-group am-input-group-sm"><span class="am-input-group-label">车牌号码</span>
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">车牌号码</span>
         <input class="am-form-field" type="text"  minlength="7" maxlength="7" data-validation-message="*请输入正确的车牌号码"  placeholder="请输入要年检的车牌号码" onkeyup="this.value = this.value.toUpperCase();" value="粤S"   required/>
       </div>
     </div>
 
    <div class="am-u-sm-12">    
-      <div class="am-input-group am-form-group am-input-group-sm"><span class="am-input-group-label">预约日期</span>
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">预约日期</span>
         <input type="text"  data-validation-message="*请预约要年检的时间" class="am-form-field" style="background:#fff;" placeholder="请预约要年检的时间"  id="appDate" readonly />
       </div>
     </div>
 
    <div class="am-u-sm-12">    
-      <div class="am-input-group am-form-group am-input-group-sm"><span class="am-input-group-label">年审区域</span>
+      <div class="am-input-group am-form-group am-input-group-default"><span class="am-input-group-label">年审区域</span>
         <select name="userarea">
             <option value="西平机动车检测站">西平机动车检测站</option>
             <option value="西平机动车检测站">南城机动车检测站</option>            

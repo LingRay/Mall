@@ -30,21 +30,10 @@
   <!-- Tile icon for Win8 (144x144 + tile color) -->
   <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
   <meta name="msapplication-TileColor" content="#0e90d2">
-
-  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-  <!--
-  <link rel="canonical" href="http://www.example.com/">
-  -->
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
   <link rel="stylesheet" href="assets/css/app.css">
 </head>
 <body>
-<!--[if lte IE 9]>
-<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a
-  href="http://browsehappy.com/" target="_blank">升级浏览器</a>
-  以获得更好的体验！</p>
-<![endif]-->
-
 <header data-am-widget="header" class="am-header am-header-default">
   <div class="am-header-left am-header-nav">
     <a href="javascript:history.go(-1)" class="">
@@ -85,11 +74,7 @@
 <div style="height:250px"></div>
 
 <script type="text/x-handlebars-template" id="amz-tpl">
-  {{>menu menu}}
-  {{>list_news list1}}
-  {{>list_news list2}}
-  {{>footer footer}}
-  {{>navbar navbar}}
+   {{>navbar navbar}}
 </script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/amazeui.min.js"></script>
@@ -128,7 +113,6 @@
   });
 });
 </script>
-<!--<![endif]-->
 
 </body>
 </html>
