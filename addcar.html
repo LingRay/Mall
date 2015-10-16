@@ -229,7 +229,7 @@
 
 			function getserial(id) {
 					//closemenu();
-					$.getJSON("http://218.16.59.113:8082/WXService.asmx/GetCarInfo?action=serial&id=" + id + "&jsoncallback=?",
+					$.getJSON("http://218.16.59.113:8082/MService.asmx/GetCarInfo?action=serial&id=" + id + "&jsoncallback=?",
 						function(result) {
 							var seriallist = "";
 							for (var i in result) {
@@ -245,7 +245,7 @@
 				//型号
 
 			function getmodal(id) {
-					$.getJSON("http://218.16.59.113:8082/WXService.asmx/GetCarInfo?action=modal&id=" + id + "&jsoncallback=?",
+					$.getJSON("http://218.16.59.113:8082/MService.asmx/GetCarInfo?action=modal&id=" + id + "&jsoncallback=?",
 						function(result) {
 							var modallist = "";
 							for (var i in result) {
@@ -257,7 +257,7 @@
 				//执行调用
 			$(function() {
 				//品牌
-				$.getJSON("http://218.16.59.113:8082/WXService.asmx/GetCarInfo?action=brand&id=&jsoncallback=?",
+				$.getJSON("http://218.16.59.113:8082/MService.asmx/GetCarInfo?action=brand&id=&jsoncallback=?",
 					function(result) {
 						var brandlist = "";
 						for (var i in result) {
