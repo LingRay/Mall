@@ -1,7 +1,7 @@
 #Mall 基于AmazeUI
  仿团购养车项目模版
- ##文件结构
- Mall
+##文件结构
+    Mall
  |--assets  （js css image 所在目录
  |  |--css 样式
  |  |--fonts 字体
