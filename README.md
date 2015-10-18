@@ -1,5 +1,5 @@
 #Mall 基于AmazeUI
- 仿团购养车项目模版  demo: http://demo.lingray.cn/mall/
+ 仿团购养车项目移动端模版  demo: http://demo.lingray.cn/mall/
  还存在一些 数据和结构的bug
 ##文件结构
      Mall
