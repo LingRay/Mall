@@ -27,10 +27,6 @@
   <meta name="apple-mobile-web-app-title" content="车生活"/>
   <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
 
-  <!-- Tile icon for Win8 (144x144 + tile color) -->
-  <meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
-  <meta name="msapplication-TileColor" content="#0e90d2">
-
   <link rel="stylesheet" href="assets/css/amazeui.min.css">
   <link rel="stylesheet" href="assets/css/app.css">
 
@@ -169,8 +165,6 @@
 </div>
 
 <script type="text/x-handlebars-template" id="amz-tpl">
-  {{>menu menu}}
-  {{>footer footer}}
   {{>navbar navbar}}
 </script>
 <script src="assets/js/jquery.min.js"></script>
@@ -180,7 +174,7 @@
 <script src="assets/js/app.js"></script>
 <script type="text/javascript">
 //获取商家数据
-$.getJSON('shop.php?id=0&time=0&callback=',  function(data){ 
+$.getJSON('shop.json',  function(data){ 
 		getShoplist(data);
 });
  

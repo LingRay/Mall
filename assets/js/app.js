@@ -3,68 +3,6 @@ var $tpl = $('#amz-tpl');
 var source = $tpl.text();
 var template = Handlebars.compile(source);
 var data = {
-	menu: {
-		"options": {
-			"cols": "1"
-		},
-		"content": [{
-				"link": "##",
-				"title": "车务服务",
-				"subCols": 2,
-				"channelLink": "进入栏目 »",
-				"subMenu": [{
-						"link": "nscx.html",
-						"title": "年审查询"
-					}, {
-						"link": "wzcx.html",
-						"title": "违章查询"
-					}, {
-						"link": "cxyh.html",
-						"title": "车险优惠"
-					}, {
-						"link": "jyyh.html",
-						"title": "加油优惠"
-					}, {
-						"link": "cwdb.html",
-						"title": "车务代办"
-					}
-
-				]
-			}, {
-				"link": "##",
-				"title": "用车养车",
-				"subCols": 2,
-				"subMenu": [{
-					"link": "ptxc.html",
-					"title": "普通洗车"
-				}, {
-					"link": "jzxc.html",
-					"title": "精致洗车"
-				}, {
-					"link": "qcmr.html",
-					"title": "汽车美容"
-				}, {
-					"link": "qcby.html",
-					"title": "汽车保养"
-				}, {
-					"link": "qcwx.html",
-					"title": "汽车维修"
-				}]
-			}, {
-				"link": "yjfk.html",
-				"title": "意见反馈",
-			},
-
-			{
-				"link": "about.html",
-				"title": "关于我们"
-			}, {
-				"link": "index.html",
-				"title": '返回首页<i class="am-icon-home"></i>'
-			}
-		],
-		"theme": "dropdown1"
-	},
 	navbar: {
 		"options": {
 			"cols": "4",
@@ -81,7 +19,7 @@ var data = {
 			"dataApi": ""
 		}, {
 			"title": "客服",
-			"link": "tel:4008309277",
+			"link": "tel:10086",
 			"icon": "comment",
 			"dataApi": ""
 		}, {
@@ -113,31 +51,13 @@ var data = {
 			"content": "消费项目：洗车 <br/>消费金额：100元 <br/> 消费时间：2015年7月21日 <br/> 消费商家：XXXX汽车中心<br/> 消费详情：XXXXXXXXX<br/> 交易编号：2015072100001<br/> 消费积分：100"
 		}]
 	}
-//	footer: {
-//		/*  "options": {
-//		   "modal": true,
-//		   "techSupportCo": "玖贰汽车",
-//		   "techSupportSite": ""
-//		 }, */
-//		"content": {
-//			"owner": "玖贰汽车",
-//			"companyInfo": [{
-//				"detail": "CopyRight©2015 玖贰汽车产业有限公司"
-//			}, {
-//				"detail": "粤ICP备XXXXXXX"
-//			}]
-//		}
-//	}
+
 };
 var html = template(data);
 $tpl.before(html);
 
 
-//弹出隐藏菜单
-$("#nav_click").on('click', function() {
-	$("#am_menu_toggle").click();
-});
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //获取商家列表
 function getShoplist(data) {
 	var $tpl = $('#shoplist_tpl');
