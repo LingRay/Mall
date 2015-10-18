@@ -1,5 +1,5 @@
 #Mall 基于AmazeUI
- 仿团购养车项目模版
+ 仿团购养车项目模版  demo: http://demo.lingray.cn/mall/
 ##文件结构
      Mall
 		 |--assets  （js css image 所在目录
